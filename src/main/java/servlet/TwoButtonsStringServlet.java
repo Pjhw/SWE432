@@ -68,11 +68,11 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
 
    if (operation.equals(OperationA))
    {
-      rslt = new String(rhsStr + lhsStr);
+      rslt = new String(lhsStr + rhsStr);
    }
    else if (operation.equals(OperationB))
    {
-      rslt = new String(lhsStr + rhsStr);
+      rslt = new String(rhsStr + lhsStr);
    }
    //David: (6) adds multiplication action's resolution
 
