@@ -38,7 +38,7 @@ static String Servlet = "threeButtons";
 // Button labels
 static String OperationAdd = "Add";
 static String OperationSub = "Subtract";
-static Sting OperationMult = "Multiply";
+static String OperationMult = "Multiply";
 
 // Other strings.
 static String Style ="https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
@@ -106,7 +106,7 @@ private void PrintHead (PrintWriter out)
    out.println("");
 
    out.println("<head>");
-   out.println("<title>Two buttons example</title>");
+   out.println("<title>Three buttons example</title>");
    out.println(" <link rel=\"stylesheet\" type=\"text/css\" href=\"" + Style + "\">");
    out.println("</head>");
    out.println("");
