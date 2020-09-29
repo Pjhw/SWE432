@@ -12,6 +12,7 @@ import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+@WebServlet( name = "threeButtons", urlPatterns = {"/threeButtons"} )
 // twoButtons class
 // CONSTRUCTOR: no constructor specified (default)
 //
@@ -31,8 +32,8 @@ public class threeButtons extends HttpServlet
 {
 
 // Location of servlet.
-static String Domain  = "cs.gmu.edu:8443";
-static String Path    = "/offutt/servlet/";
+static String Domain  = "";
+static String Path    = "";
 static String Servlet = "threeButtons";
 
 // Button labels
