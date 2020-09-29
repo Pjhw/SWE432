@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 //David: (1) adds servlet mapping annotation
 import javax.servlet.annotation.WebServlet;
-@WebServlet( name = "threeButtons", urlPatterns = {"/threeButtons"} )
+@WebServlet( name = "twoButtonsString", urlPatterns = {"/twoButtonsString"} )
 
 // twoButtons class
 // CONSTRUCTOR: no constructor specified (default)
@@ -33,20 +33,19 @@ import javax.servlet.annotation.WebServlet;
 // private void PrintTail (PrintWriter out) --> Prints the HTML bottom
 //***********************************************************************
 
-public class ThreeButtonsServlet extends HttpServlet
+public class TwoButtonsStringServlet extends HttpServlet
 {
 
 // Location of servlet.
 // David: (5) adds the path of your form submit action
 static String Domain  = "";
 static String Path    = "";
-static String Servlet = "threeButtons";
+static String Servlet = "twoButtonsString";
 
 // Button labels
-static String OperationAdd = "Add";
-static String OperationSub = "Subtract";
+static String OperationAdd = "String A +  String B";
+static String OperationSub = "String B + String A";
 //David: (2) adds Multiplication label
-static String OperationMult = "Multiply";
 
 // Other strings.
 static String Style ="https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
@@ -61,30 +60,21 @@ static String Style ="https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
 public void doPost (HttpServletRequest request, HttpServletResponse response)
    throws ServletException, IOException
 {
-   Float rslt   = new Float(0.0);
-   Float lhsVal = new Float(0.0);
-   Float rhsVal = new Float(0.0);
+   String rslt   = new String();
    String operation = request.getParameter("Operation");
    String lhsStr = request.getParameter("LHS");
    String rhsStr = request.getParameter("RHS");
-   if ((lhsStr != null) && (lhsStr.length() > 0))
-      lhsVal = new Float(lhsStr);
-   if ((rhsStr != null) && (rhsStr.length() > 0))
-      rhsVal = new Float(rhsStr);
 
-   if (operation.equals(OperationAdd))
+
+   if (operation.equals(OperationA))
    {
-      rslt = new Float(lhsVal.floatValue() + rhsVal.floatValue());
+      rslt = rhsStr + lhsStr;
    }
-   else if (operation.equals(OperationSub))
+   else if (operation.equals(OperationB))
    {
-      rslt = new Float(lhsVal.floatValue() - rhsVal.floatValue());
+      rslt = lhsStr + rhsStr;
    }
    //David: (6) adds multiplication action's resolution
-   else if (operation.equals(OperationMult))
-   {
-      rslt = new Float(lhsVal.floatValue() * rhsVal.floatValue());
-   }
 
    response.setContentType("text/html");
    PrintWriter out = response.getWriter();
@@ -162,10 +152,9 @@ private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    out.println(" </table>");
    out.println(" <br>");
    out.println(" <br>");
-   out.println(" <input type=\"submit\" value=\"" + OperationAdd + "\" name=\"Operation\">");
-   out.println(" <input type=\"submit\" value=\"" + OperationSub + "\" name=\"Operation\">");
+   out.println(" <input type=\"submit\" value=\"" + OperationA + "\" name=\"Operation\">");
+   out.println(" <input type=\"submit\" value=\"" + OperationB + "\" name=\"Operation\">");
    // David: (3) adds multiplication button
-   out.println(" <input type=\"submit\" value=\"" + OperationMult + "\" name=\"Operation\">");
    out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\">");
    out.println("</form>");
    out.println("");
