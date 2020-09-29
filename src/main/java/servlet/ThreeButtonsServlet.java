@@ -1,18 +1,23 @@
 /** *****************************************************************
-    twoButtons.java   servlet example
+    threeButtons.java   servlet example
 
-        @author Jeff Offutt
+        @author Peter Hadeed & Jeff Offutt
 ********************************************************************* */
 
-// Import Java Libraries
-import java.io.*;
-import java.util.*;
+import java.io.PrintWriter;
+import java.io.IOException;
 
-//Import Servlet Libraries
-import javax.servlet.*;
-import javax.servlet.http.*;
+import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+//David: (1) adds servlet mapping annotation
+import javax.servlet.annotation.WebServlet;
 @WebServlet( name = "threeButtons", urlPatterns = {"/threeButtons"} )
+
 // twoButtons class
 // CONSTRUCTOR: no constructor specified (default)
 //
@@ -28,10 +33,11 @@ import javax.servlet.http.*;
 // private void PrintTail (PrintWriter out) --> Prints the HTML bottom
 //***********************************************************************
 
-public class threeButtons extends HttpServlet
+public class ThreeButtonsServlet extends HttpServlet
 {
 
 // Location of servlet.
+// David: (5) adds the path of your form submit action
 static String Domain  = "";
 static String Path    = "";
 static String Servlet = "threeButtons";
@@ -39,6 +45,7 @@ static String Servlet = "threeButtons";
 // Button labels
 static String OperationAdd = "Add";
 static String OperationSub = "Subtract";
+//David: (2) adds Multiplication label
 static String OperationMult = "Multiply";
 
 // Other strings.
@@ -50,6 +57,7 @@ static String Style ="https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
  *  indicated by the submit button, and sends the results
  *  back to the client.
 ********************************************************* */
+@Override
 public void doPost (HttpServletRequest request, HttpServletResponse response)
    throws ServletException, IOException
 {
@@ -72,9 +80,10 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    {
       rslt = new Float(lhsVal.floatValue() - rhsVal.floatValue());
    }
+   //David: (6) adds multiplication action's resolution
    else if (operation.equals(OperationMult))
    {
-	   reslt = new Float(lhsVal.floatValue() * rhsVal.floatValue());
+      rslt = new Float(lhsVal.floatValue() * rhsVal.floatValue());
    }
 
    response.setContentType("text/html");
@@ -88,6 +97,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
  *  Overrides HttpServlet's doGet().
  *  Prints an HTML page with a blank form.
 ********************************************************* */
+@Override
 public void doGet (HttpServletRequest request, HttpServletResponse response)
        throws ServletException, IOException
 {
@@ -107,7 +117,7 @@ private void PrintHead (PrintWriter out)
    out.println("");
 
    out.println("<head>");
-   out.println("<title>Three buttons example</title>");
+   out.println("<title>Two buttons example</title>");
    out.println(" <link rel=\"stylesheet\" type=\"text/css\" href=\"" + Style + "\">");
    out.println("</head>");
    out.println("");
@@ -125,7 +135,16 @@ private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    out.println("multiple submit buttons.");
    out.println("</p>");
    out.print  ("<form method=\"post\"");
-   out.println(" action=\"https://" + Domain + Path + Servlet + "\">");
+   //David: (4) changes  action's url to your own url using a relative path to the servlet.
+   //If left untouched, the operation buttons go to Prof. Offutt website, and
+   // if you provide an erroneous path you will see a 404 (Not Found) error.
+   //In the form action, you can specify an absolute or relative path to your URL
+   // and optionally the servlet that will respond to the action.
+   //However, the original line only works when your app is deployed
+   // and not when running locally (yourpage.com vs localhost:port).
+   // For simplicity, I used a relative path but it is strongly recommended
+   // to use absolute paths because they can cached by web servers and browsers
+   out.println(" action=\"/" + Servlet + "\">");
    out.println("");
    out.println(" <table>");
    out.println("  <tr>");
@@ -145,6 +164,7 @@ private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    out.println(" <br>");
    out.println(" <input type=\"submit\" value=\"" + OperationAdd + "\" name=\"Operation\">");
    out.println(" <input type=\"submit\" value=\"" + OperationSub + "\" name=\"Operation\">");
+   // David: (3) adds multiplication button
    out.println(" <input type=\"submit\" value=\"" + OperationMult + "\" name=\"Operation\">");
    out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\">");
    out.println("</form>");
