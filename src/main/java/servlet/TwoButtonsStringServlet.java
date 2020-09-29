@@ -43,8 +43,8 @@ static String Path    = "";
 static String Servlet = "twoButtonsString";
 
 // Button labels
-static String OperationAdd = "String A +  String B";
-static String OperationSub = "String B + String A";
+static String OperationA = "String A +  String B";
+static String OperationB = "String B + String A";
 //David: (2) adds Multiplication label
 
 // Other strings.
