@@ -166,7 +166,6 @@ private void Printstyle(PrintWriter out) {
 	
 	out.println("</style>");
 	
-	out.println("</style>");
 }
 
 }  // End twoButtons
