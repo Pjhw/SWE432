@@ -33,8 +33,6 @@ static String OperationA = "String A +  String B";
 static String OperationB = "String B + String A";
 //David: (2) adds Multiplication label
 
-// Other strings.
-static String Style ="http://mason.gmu.edu/~phadeed/style.css";
 
 /** *****************************************************
  *  Overrides HttpServlet's doPost().
@@ -94,7 +92,7 @@ private void PrintHead (PrintWriter out)
 
    out.println("<head>");
    out.println("<title>Peter Hadeed - SWE 432 - Assignment 5</title>");
-   out.println(" <link rel=\"stylesheet\" type=\"text/css\" href=\"" + Style + "\">");
+   out.println(" <link rel=\"stylesheet\" type=\"text/css\" href=\"http://mason.gmu.edu/~phadeed/style.css"\">");
    out.println("</head>");
    out.println("");
 } // End PrintHead
