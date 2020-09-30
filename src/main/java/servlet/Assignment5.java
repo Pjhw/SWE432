@@ -34,7 +34,7 @@ static String OperationB = "String B + String A";
 //David: (2) adds Multiplication label
 
 // Other strings.
-static String Style ="http://mason.gmu.edu/~phadeed/432-style.css";
+static String Style ="http://mason.gmu.edu/~phadeed/style.css";
 
 /** *****************************************************
  *  Overrides HttpServlet's doPost().
