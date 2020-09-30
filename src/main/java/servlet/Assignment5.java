@@ -138,7 +138,8 @@ private void PrintTail (PrintWriter out)
    out.println("</html>");
 } // End PrintTail
 
-private void Printstyle(PrintWriter out) {
+private void PrintStyle(PrintWriter out)
+{
 	out.println("<style>");
 	out.println("h1{color:#000000;text-align:center;text-color:#900000;");
 	out.println("text-shadow: 1px 1px darkgray;}");
@@ -168,4 +169,4 @@ private void Printstyle(PrintWriter out) {
 	
 }
 
-}  // End twoButtons
+} 
