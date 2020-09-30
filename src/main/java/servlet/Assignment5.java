@@ -106,18 +106,18 @@ private void PrintHead (PrintWriter out)
 private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
 {
    out.println("<body>");
-   outprintln("<div class=content>");
-   outprintln("<div class=header>");
-   outprintln("<h1>Peter Hadeed - SWE 432 - Assignment 5</h1>");
-   outprintln("</div>");
+   out.println("<div class=content>");
+   out.println("<div class=header>");
+   out.println("<h1>Peter Hadeed - SWE 432 - Assignment 5</h1>");
+   out.println("</div>");
    
-   outprintln("<ul>");
-   outprintln("<li><a href=\"http://mason.gmu.edu/~phadeed/\">Home</a></li>");
-   outprintln("<li><a href=\"http://mason.gmu.edu/~phadeed/Assignment_3.html\">Assignment 3</a></li>");
-   outprintln("<li><a href=\"https://swe432-hadeed.herokuapp.com/Assignment5\" class = current>Assignment 5</a></li>");
-   outprintln("</ul>");
+   out.println("<ul>");
+   out.println("<li><a href=\"http://mason.gmu.edu/~phadeed/\">Home</a></li>");
+   out.println("<li><a href=\"http://mason.gmu.edu/~phadeed/Assignment_3.html\">Assignment 3</a></li>");
+   out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/Assignment5\" class = current>Assignment 5</a></li>");
+   out.println("</ul>");
    
-   outprintln("</div>");
+   out.println("</div>");
    out.println("</body>");
 } // End PrintBody
 
