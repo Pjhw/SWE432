@@ -92,7 +92,7 @@ private void PrintHead (PrintWriter out)
 
    out.println("<head>");
    out.println("<title>Peter Hadeed - SWE 432 - Assignment 5</title>");
-   out.println(" <link rel=\"stylesheet\" type=\"text/css\" href=\"http://mason.gmu.edu/~phadeed/style.css"\">");
+   out.println(" <link rel=\"stylesheet\" type=\"text/css\" href=\"http://mason.gmu.edu/~phadeed/style.css\">");
    out.println("</head>");
    out.println("");
 } // End PrintHead
