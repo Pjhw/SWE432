@@ -93,7 +93,7 @@ private void PrintHead (PrintWriter out)
    out.println("");
 
    out.println("<head>");
-   out.println("<title>Two buttons example</title>");
+   out.println("<title>Peter Hadeed - SWE 432 - Assignment 5</title>");
    out.println(" <link rel=\"stylesheet\" type=\"text/css\" href=\"" + Style + "\">");
    out.println("</head>");
    out.println("");
@@ -106,44 +106,18 @@ private void PrintHead (PrintWriter out)
 private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
 {
    out.println("<body>");
-   out.println("<p>");
-   out.println("A simple example that demonstrates how to operate with");
-   out.println("multiple submit buttons.");
-   out.println("</p>");
-   out.print  ("<form method=\"post\"");
-   //David: (4) changes  action's url to your own url using a relative path to the servlet.
-   //If left untouched, the operation buttons go to Prof. Offutt website, and
-   // if you provide an erroneous path you will see a 404 (Not Found) error.
-   //In the form action, you can specify an absolute or relative path to your URL
-   // and optionally the servlet that will respond to the action.
-   //However, the original line only works when your app is deployed
-   // and not when running locally (yourpage.com vs localhost:port).
-   // For simplicity, I used a relative path but it is strongly recommended
-   // to use absolute paths because they can cached by web servers and browsers
-   out.println(" action=\"/" + Servlet + "\">");
-   out.println("");
-   out.println(" <table>");
-   out.println("  <tr>");
-   out.println("   <td>First value:");
-   out.println("   <td><input type=\"text\" name=\"LHS\" value=\"" + lhs + "\" size=5>");
-   out.println("  </tr>");
-   out.println("  <tr>");
-   out.println("   <td>Second value:");
-   out.println("   <td><input type=\"text\" name=\"RHS\" value=\"" + rhs + "\" size=5>");
-   out.println("  </tr>");
-   out.println("  <tr>");
-   out.println("   <td>Result:");
-   out.println("   <td><input type=\"text\" name=\"RHS\" value=\"" + rslt + "\" size=6>");
-   out.println("  </tr>");
-   out.println(" </table>");
-   out.println(" <br>");
-   out.println(" <br>");
-   out.println(" <input type=\"submit\" value=\"" + OperationA + "\" name=\"Operation\">");
-   out.println(" <input type=\"submit\" value=\"" + OperationB + "\" name=\"Operation\">");
-   // David: (3) adds multiplication button
-   out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\">");
-   out.println("</form>");
-   out.println("");
+   outprintln("<div class=content>");
+   outprintln("<div class=header>");
+   outprintln("<h1>Peter Hadeed - SWE 432 - Assignment 5</h1>");
+   outprintln("</div>");
+   
+   outprintln("<ul>");
+   outprintln("<li><a href=\"http://mason.gmu.edu/~phadeed/\">Home</a></li>");
+   outprintln("<li><a href=\"http://mason.gmu.edu/~phadeed/Assignment_3.html\">Assignment 3</a></li>");
+   outprintln("<li><a href=\"https://swe432-hadeed.herokuapp.com/Assignment5\" class = current>Assignment 5</a></li>");
+   outprintln("</ul>");
+   
+   outprintln("</div>");
    out.println("</body>");
 } // End PrintBody
 
