@@ -93,6 +93,7 @@ private void PrintHead (PrintWriter out)
    out.println("<head>");
    out.println("<title>Peter Hadeed - SWE 432 - Assignment 5</title>");
    out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"http://mason.gmu.edu/~phadeed/style.css\">");
+   PrintStyle(out);
    out.println("</head>");
    out.println("");
 } // End PrintHead
@@ -136,5 +137,36 @@ private void PrintTail (PrintWriter out)
    out.println("");
    out.println("</html>");
 } // End PrintTail
+
+private void Printstyle(PrintWriter out) {
+	out.println("<style>");
+	out.println("h1{color:#000000;text-align:center;text-color:#900000;");
+	out.println("text-shadow: 1px 1px darkgray;}");
+	
+	out.println("ul{list-style-type:none;margin:0;padding:0;width:15%;");
+	out.println("background-color:lightgray;border:1px solid black; height: 80%;");
+	out.println("border-radius: 20px; float: left; display: block;}");
+	
+	out.println("li a{display:block;color:#000;text-decoration:none;");
+	out.println("padding: 8px 16px;text-align: center;border-radius: 20px;transition: 0.2s;}");
+	
+	out.println("li a:hover{background-color: #555;color:white;opacity:0.8;}");
+	
+	out.println("li a.current{background-color:#555;color:white;}");
+	
+	out.println("div.header{display:block;border:1px solid black;");
+	out.println("border-radius: 20px;margin-bottom:10px;background-color:lightgray;}");
+	
+	out.println("div.content{padding: 1% 1%;background-color: efeff5;");
+	out.println("border-radius:20px;height:97%;}");
+	
+	out.println("body{background-color: darkblue;}");
+	
+	out.println("div.button{padding: 0% 50%;}");
+	
+	out.println("</style>");
+	
+	out.println("</style>");
+}
 
 }  // End twoButtons
