@@ -153,7 +153,6 @@ private void PrintHeader (PrintWriter out, String lhs, String rhs, String rslt)
    
    
    
-   out.println("</div>");
 }
 
 /** *****************************************************
@@ -170,6 +169,7 @@ private void PrintHeader (PrintWriter out)
 ********************************************************* */
 private void PrintTail (PrintWriter out)
 {
+	out.println("</div>");
     out.println("</body>");
 	out.println("");
     out.println("</html>");
