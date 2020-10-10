@@ -141,10 +141,10 @@ private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    out.println("<b> Allowed </b><br><br>");
    out.println("1. Operators - && : & : and : || : | : or : xor : ^ <br><br>");
    out.println("2. Operands - Anything counts as an operand.<br><br>");
-   out.println("All Operands and Operators must be separated by a SPACE<br><br>");
+   out.println("3. All Operands and Operators must be separated by a SPACE<br><br>");
    out.println("<b>Not Allowed</b><br><br>");
    out.println("1. Empty Forms<br><br>");
-   out.println("2. Logical operators with only one operand (i.e. \"1 and \"");
+   out.println("2. Logical operators with only one operand (i.e. \"1 and \")");
    out.println("</p></div>");
    
    out.println("</div>");
