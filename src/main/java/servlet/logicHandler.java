@@ -48,7 +48,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
    
    String predicateField = request.getParameterNames().nextElement();
    String[] values = request.getParameterValues(predicateField);
-   String[]  predicate = values;
+   String[]  predicate = values[0].split(" ");
 
    PrintHead(out);
    PrintHeader(out);
@@ -67,7 +67,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
    
    for(String value : predicate) {
 	   if(operator==1) {
-		   operators[opCtr++] = value;
+		   operators[opCtr++].copyValueOf(value);
 		   operator = 0;
 		   continue;
 	   }
