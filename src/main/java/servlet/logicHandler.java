@@ -45,8 +45,9 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
    //Get the response's PrintWriter to return text to the client.
    PrintWriter out = response.getWriter ();
 
-   String para;
-   Enumeration paraNames = request.getParameterNames();
+   
+   String predicate = request.getParameterNames().nextElement();
+   String[] values = predicate.split(" ");
 
    PrintHead(out);
    PrintHeader(out);
@@ -57,11 +58,15 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
    out.println("<table cellSpacing=1 cellPadding=1 width=\"75%\" border=1 bgColor=lavender>");
    out.println("");
    out.println("  <tr bgcolor=\"#FFFFFF\">");
-   out.println("   <th align=\"center\"><b>Parameter</b></td>");
+   
+
+   for(value : values) {
+	   out.println("   <th align=\"center\"><b>" + value + "</b></td>");
+   }
    out.println("   <th align=\"center\"><b>Value</b></td>");
    out.println("  </tr>");
    
-
+   /*
    while (paraNames.hasMoreElements())
    {  // For each parameter name.
       para = (String)paraNames.nextElement();
@@ -88,6 +93,8 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
          }
       }
    }
+   */
+   
    out.println("</table>");
    
    PrintTail(out);
