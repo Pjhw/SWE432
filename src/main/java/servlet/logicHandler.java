@@ -89,15 +89,15 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
 		   val = (i/(int) Math.pow(2,  j))%2;
 		   out.println("   <td align=\"center\"><b>" + val + "</b></td>");
 		  
-		   /*
-		   if(j==(n-1)) {result = val;}
+		   
+		   if(j== (n-1)) {result = val;}
 		   else {
-			   if(isAnd(operators[n-j-1])) {
-				   result = val & result;
+			   if(isAnd(operators[n-j])) {
+				   result = (val & result);
 			   }
-			   else { result = val | result;}
+			   else { result = (val | result);}
 		   }
-		   */
+		   
 		   
 	   }
 	   
