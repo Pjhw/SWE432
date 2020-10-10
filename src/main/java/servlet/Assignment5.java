@@ -201,7 +201,7 @@ private void PrintStyle(PrintWriter out)
     
     out.println("td{ text-align: center; margin-left: auto; margin-right: auto;}");
     
-    out.println("table{margin-left:auto;margin-right:auto;margin-top:5%;}");
+    out.println("table{margin-left:auto;margin-right:auto;margin-top:5%; margin-bottom:4%;}");
     
     out.println("div.form_description{border: 1px solid black;margin: 3% 20%;");
     out.println("border-radius: 20px;}");
