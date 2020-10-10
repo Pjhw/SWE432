@@ -47,7 +47,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
 
    
    String predicate = request.getParameterNames().nextElement();
-   String[] values = predicate.split(" ");
+   String[] values = request.getParameterValues(predicate).nextElement().predicate.split(" ");
 
    PrintHead(out);
    PrintHeader(out);
@@ -63,7 +63,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
    for(String value : values) {
 	   out.println("   <td align=\"center\"><b>" + value + "</b></td>");
    }
-   out.println("   <td align=\"center\"><b>No</b></td>");
+   out.println("   <td align=\"center\"><b>Value</b></td>");
    out.println("  </tr>");
    
    /*
