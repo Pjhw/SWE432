@@ -49,10 +49,9 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
    Enumeration paraNames = request.getParameterNames();
 
    PrintHead(out);
-
-   out.println("<body bgcolor=\"#EEEEEE\">");
+   PrintHeader(out);
    out.println("");
-   out.println("<center><h2>Generic form handler</h2></center>");
+   out.println("<center><h2>Logic form handler</h2></center>");
    out.println("<p>");
    out.println("The following table lists all parameter names and");
    out.println("their values that were submitted from your form.");
@@ -151,7 +150,7 @@ private void PrintHead (PrintWriter out)
  *  Prints the <BODY> of the HTML page with the form data
  *  values from the parameters.
 ********************************************************* */
-private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
+private void PrintHeader (PrintWriter out, String lhs, String rhs, String rslt)
 {
    out.println("<body>");
    out.println("<div class=content>");
@@ -166,46 +165,17 @@ private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    out.println("</ul>");
    
    
-   //Form print
-   out.println("<div class=form_title>");
-   out.println("<h1> Logic Predicate Form </h1></div>");
-   
-   out.println("<div class=form>");
-   out.println("<form method=\"post\" action = \"logicHandler\" name=\"PredicateForm\" ");
-   out.println("onSubmit=\" return(CheckPredicate())\">");
-   
-   out.println("<table><tr><td><input type = \"text\" name=\"PredicateField\"></tr> ");
-   out.println("<tr><td colspan=2 align=middle><input type=\"submit\" value=\"Submit\"></tr>");
-   out.println("</table></form></div>");
-   
-   //Form Description
-   out.println("<div class=form_description><p style=\"margin-left: 10%;\"");
-   out.println("<b>Description of Use</b><br><br>");
-   out.println("Enter any logical predicate into the form. Logical predicates consist"
-   		+ " of any strings following the form (X = Operand, Y = Operator):");
-   out.println("<br><br>");
-   out.println("X -- X Y X -- X Y X Y X, Etc...");
-   out.println("<br><br>");
-   out.println("<b> Allowed </b><br><br>");
-   out.println("1. Operators - && : & : and : || : | : or <br><br>");
-   out.println("2. Operands - Anything counts as an operand.<br><br>");
-   out.println("All Operands and Operators must be separated by a SPACE<br><br>");
-   out.println("<b>Not Allowed</b><br><br>");
-   out.println("1. Empty Forms<br><br>");
-   out.println("2. Logical operators with only one operand (i.e. \"1 and \"");
-   out.println("</p></div>");
    
    out.println("</div>");
-   out.println("</body>");
 } // End PrintBody
 
 /** *****************************************************
  *  Overloads PrintBody (out,lhs,rhs,rslt) to print a page
  *  with blanks in the form fields.
 ********************************************************* */
-private void PrintBody (PrintWriter out)
+private void PrintHeader (PrintWriter out)
 {
-   PrintBody(out, "", "", "");
+   PrintHeader(out, "", "", "");
 }
 
 /** *****************************************************
