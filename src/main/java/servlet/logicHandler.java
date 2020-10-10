@@ -48,7 +48,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
    
    String predicateField = request.getParameterNames().nextElement();
    String[] values = request.getParameterValues(predicateField);
-   String[]  predicate = values[0].split(" ");
+   String[]  predicate = values;
 
    PrintHead(out);
    PrintHeader(out);
