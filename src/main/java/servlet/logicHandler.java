@@ -95,13 +95,15 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
 		   
 		   
 		   else {
-			   if(isAnd(operators[opCtr++])) {
+			   if(isAnd(operators[opCtr])) {
 				   result = (val & result);
 			   }
 			   else if(isOr(operators[opCtr])){
 				   result = (val | result);
 			   }
 			   else {result =(val ^ result);}
+			   
+			   opCtr++;
 		   }
 		   
 		   
