@@ -55,7 +55,6 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
    out.println("<div class=form_title>");
    out.println("<h1> Logic Predicate Form </h1></div>");
    
-   out.println("<div class=\"form\">");
    out.println("<table cellSpacing=1 cellPadding=1 width=\"75%\" border=1 bgColor=lavender>");
    out.println("");
    out.println("  <tr bgcolor=\"#FFFFFF\">");
@@ -121,7 +120,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
    
    
    
-   out.println("</table></div>");
+   out.println("</table>");
    
    PrintTail(out);
 
