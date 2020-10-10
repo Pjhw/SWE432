@@ -131,7 +131,7 @@ private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    out.println("</table></form></div>");
    
    //Form Description
-   out.println("<div class=form_description><p style=\"margin-left: 10%;\"");
+   out.println("<div class=form_description><p style=\"margin-left: 10%;\">");
    out.println("<b>Description of Use</b><br><br>");
    out.println("Enter any logical predicate into the form. Logical predicates consist"
    		+ " of any strings following the form (X = Operand, Y = Operator):");
@@ -139,7 +139,7 @@ private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    out.println("X -- X Y X -- X Y X Y X, Etc...");
    out.println("<br><br>");
    out.println("<b> Allowed </b><br><br>");
-   out.println("1. Operators - && : & : and : || : | : or <br><br>");
+   out.println("1. Operators - && : & : and : || : | : or : xor : ^ <br><br>");
    out.println("2. Operands - Anything counts as an operand.<br><br>");
    out.println("All Operands and Operators must be separated by a SPACE<br><br>");
    out.println("<b>Not Allowed</b><br><br>");
