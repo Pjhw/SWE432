@@ -60,7 +60,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
    out.println("  <tr bgcolor=\"#FFFFFF\">");
    
 
-   for(value : values) {
+   for(String value : values) {
 	   out.println("   <th align=\"center\"><b>" + value + "</b></td>");
    }
    out.println("   <th align=\"center\"><b>Value</b></td>");
