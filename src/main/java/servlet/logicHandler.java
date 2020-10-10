@@ -62,7 +62,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
    
    int operator = 0;
    int n = 0;
-   String[] operators = new String[n/2];
+   String[] operators = new String[[predicate.length]/2];
    int opCtr = 0;
    
    for(String value : predicate) {
