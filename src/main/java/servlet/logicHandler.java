@@ -94,11 +94,17 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
 		   
 		   
 		   else {
+			   
 			   if(operators[n-j].equals("&&") || operators[n-j].equals("&") ||
 					   operators[n-j].equals("and")) {
-				   result = (val & result);
+				   if(result == 1 && val == 1) { result=1;}
+				   else {result = 0;}
 			   }
-			   else { result = (val | result);}
+			   
+			   else {
+				   if(result == 0 && val == 0) {result=0;}
+				   else{result = 1;}
+			   }
 		   }
 		   
 		   
