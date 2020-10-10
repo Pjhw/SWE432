@@ -192,6 +192,18 @@ private void PrintStyle(PrintWriter out)
 	
 	out.println("div.button{padding: 0% 50%;}");
 	
+	out.println("div.form{border: 1px solid black; margin: 3% 20%;");
+    out.println("border-radius: 20px;}");
+    
+    out.println("td{ text-align: center; margin-left: auto; margin-right: auto;}");
+    
+    out.println("table{margin-left:auto;margin-right:auto;margin-top:5%;}");
+    
+    out.println("div.form_description{border: 1px solid black;margin: 3% 20%;");
+    out.println("border-radius: 20px;}");
+    
+    out.println("div.form_title{ margin: 3% 20%;text-align:center;}");
+	
 	out.println("</style>");
 	
 }
