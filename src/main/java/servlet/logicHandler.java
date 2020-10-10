@@ -79,7 +79,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
    out.println("   <td align=\"center\"><b>Value</b></td>");
    out.println("  </tr>");
    
-   /*
+   
    int rows = (int) Math.pow(2, n);
    int result = 1;
    int val = 1;
@@ -106,7 +106,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
 	     
 	   
    }
-   */
+   
    
    
    /*
