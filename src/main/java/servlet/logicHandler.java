@@ -101,7 +101,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
 			   else if(isOr(operators[opCtr])){
 				   result = (val | result);
 			   }
-			   else {result =(val ^ result);
+			   else {result =(val ^ result);}
 		   }
 		   
 		   
