@@ -211,4 +211,62 @@ private void PrintStyle(PrintWriter out)
 	
 }
 
+private void PrintJS(PrintWriter out) {
+	out.println("<script>");
+	
+	out.println("function CheckPredicate(){");
+	
+	out.println("var predicate = document.PredicateForm.PredicateField.value.split(\" \");");
+	out.println("var valid = true;");
+	out.println("var operand = true;");
+	out.println("var errormsg = \"The following errors occurred\\n\\n\";");
+	out.println("var one_operand = false;");
+	
+	out.println("for(let i = 0; i < predicate.length; i++){");
+	out.println("if(operand{");
+	out.println("if(CheckOperand(predicate[i])){");
+	out.println("operand = false; valid = true; one_operand = false; continue;}");
+	out.println("else{errormsg = errormsg.concat(\"Empty String for operand.\\n\");");
+	out.println("valid = false; break;}}");
+	
+	out.println("else{ one_operand = true;");
+	out.println("if(CheckOperator(predicate[i])){");
+	out.println("operand = true; valid = false; continue;}");
+	out.println("else{");
+	out.println("errormsg = errormsg.concat(\"Bad operator entered.\\n\");");
+	out.println("valid = false; break; }}}");
+	
+	out.println("if(valid){return(true);}");
+	out.println("else{");
+	out.println("if(one_operand){errormsg=errormsg.concat(\"Operator is missing an operand\\n\");}");
+	out.println("PrintErrorMsg(errormsg); return(false);}}");
+	
+	out.println("function CheckOperator(operator){");
+	out.println("if(operand.length == 0){return(false);}return(true);}");
+	
+	out.println("function CheckOperator(operator){");
+	out.println("if(operator.localeCompare(\"&\") !=0 && operator.localeCompare(\"&&\") !=0 && \r\n" + 
+			"         		operator.localeCompare(\"|\") !=0 && operator.localeCompare(\"||\") !=0 &&\r\n" + 
+			"         		operator.localeCompare(\"or\") !=0 &&\r\n" + 
+			"         		operator.localeCompare(\"and\") !=0 &&\r\n" + 
+			"         		operator.localeCompare(\"OR\") !=0 &&\r\n" + 
+			"         		operator.localeCompare(\"AND\") !=0\r\n" + 
+			"         		){\r\n" + 
+			"         \r\n" + 
+			"         		return (false);\r\n" + 
+			"         	}\r\n" + 
+			"         \r\n" + 
+			"         	else{ return (true);}\r\n" + 
+			"         }");
+	
+	out.println("//Prints the accumulated error message\r\n" + 
+			"         function PrintErrorMsg(errormsg){\r\n" + 
+			"         	alert(errormsg);\r\n" + 
+			"         }");
+	
+	out.println("</script>");
+	
+	
+}
+
 } 
