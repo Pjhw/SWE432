@@ -92,25 +92,26 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
 		   
 		   if(j== (n-1)) {result = val;}
 		   
-		   
+		   /*
 		   else {
-			   
-			   if(operators[n-j].equals("&&") || operators[n-j].equals("&") ||
-					   operators[n-j].equals("and")) {
-				   if(result == 1 && val == 1) { result=1;}
-				   else {result = 0;}
+			   if(isAnd(operators[n-j])) {
+				   result = (val & result);
 			   }
-			   
-			   else {
-				   if(result == 0 && val == 0) {result=0;}
-				   else{result = 1;}
-			   }
+			   else { result = (val | result);}
 		   }
-		   
+		   */
 		   
 	   }
 	   
-	   out.println("   <td align=\"center\"><b>" + result + "</b></td>");
+	   
+	   //out.println("   <td align=\"center\"><b>" + result + "</b></td>");
+	   
+	   out.println("   <td align=\"center\"><b>");
+	   for(String op : operators) {
+		   out.println(op);
+	   }
+	   
+	   out.println("</b></td>");
 	   result = 1;
 	   out.println("</tr>");
 	     
