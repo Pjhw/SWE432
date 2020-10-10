@@ -85,6 +85,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
 		   
    for(int i = 0; i < rows; i++) {
 	   out.println("  <tr>"); 
+	   opCtr=0;
 	   for(int j = n-1; j >= 0; j--) {
 		   val = (i/(int) Math.pow(2,  j))%2;
 		   out.println("   <td align=\"center\"><b>" + val + "</b></td>");
@@ -92,26 +93,21 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
 		   
 		   if(j== (n-1)) {result = val;}
 		   
-		   /*
+		   
 		   else {
-			   if(isAnd(operators[n-j])) {
+			   if(isAnd(operators[opCtr++])) {
 				   result = (val & result);
 			   }
 			   else { result = (val | result);}
 		   }
-		   */
+		   
 		   
 	   }
 	   
 	   
-	   //out.println("   <td align=\"center\"><b>" + result + "</b></td>");
+	   out.println("   <td align=\"center\"><b>" + result + "</b></td>");
 	   
-	   out.println("   <td align=\"center\"><b>");
-	   for(String op : operators) {
-		   out.println(op);
-	   }
-	   
-	   out.println("</b></td>");
+
 	   result = 1;
 	   out.println("</tr>");
 	     
