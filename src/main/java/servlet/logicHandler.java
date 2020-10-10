@@ -61,9 +61,9 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
    
 
    for(String value : values) {
-	   out.println("   <th align=\"center\"><b>" + value + "</b></td>");
+	   out.println("   <td align=\"center\"><b>" + value + "</b></td>");
    }
-   out.println("   <th align=\"center\"><b>Value</b></td>");
+   out.println("   <td align=\"center\"><b>No</b></td>");
    out.println("  </tr>");
    
    /*
