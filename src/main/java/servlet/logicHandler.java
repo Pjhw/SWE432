@@ -61,7 +61,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
    out.println("  <tr bgcolor=\"#FFFFFF\">");
    
    int operator = 0;
-   int n = 0;
+   int n = predicate.length/2  + 1;
    String[] operators = new String[predicate.length/2];
    int opCtr = 0;
    
@@ -73,10 +73,9 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
 	   }
 	   out.println("   <td align=\"center\"><b>" + value + "</b></td>");
 	   operator = 1;
-	   n++;
    }
    
-   out.println("   <td align=\"center\"><b>Value</b></td>");
+   out.println("   <td align=\"center\"><b>" + values[0] + "</b></td>");
    out.println("  </tr>");
    
    
@@ -84,13 +83,13 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
    int result = 1;
    int val = 1;
 		   
-   for(int i = 0; i < 4; i++) {
+   for(int i = 0; i < rows; i++) {
 	   out.println("  <tr>"); 
 	   for(int j = n-1; j >= 0; j--) {
 		   val = (i/(int) Math.pow(2,  j))%2;
 		   out.println("   <td align=\"center\"><b>" + val + "</b></td>");
 		  
-		   if(j==n-1) {result = val;}
+		   if(j==(n-1)) {result = val;}
 		   else {
 			   if(isAnd(operators[n-j-1])) {
 				   result = val & result;
