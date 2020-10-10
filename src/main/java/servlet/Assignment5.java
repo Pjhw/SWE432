@@ -281,13 +281,17 @@ private void PrintJS(PrintWriter out) {
 			"         	return (true);\r\n" + 
 			"         }");
 	
-	out.println("function CheckOperator(operator){");
-	out.println("if(operator.localeCompare(\"&\") !=0 && operator.localeCompare(\"&&\") !=0 && \r\n" + 
+	out.println("function CheckOperator(operator){\r\n" + 
+			"         	if(operator.localeCompare(\"&\") !=0 && operator.localeCompare(\"&&\") !=0 && \r\n" + 
 			"         		operator.localeCompare(\"|\") !=0 && operator.localeCompare(\"||\") !=0 &&\r\n" + 
 			"         		operator.localeCompare(\"or\") !=0 &&\r\n" + 
 			"         		operator.localeCompare(\"and\") !=0 &&\r\n" + 
 			"         		operator.localeCompare(\"OR\") !=0 &&\r\n" + 
-			"         		operator.localeCompare(\"AND\") !=0\r\n" + 
+			"         		operator.localeCompare(\"AND\") !=0 &&\r\n" + 
+			"         		operator.localeCompare(\"XOR\") !=0 &&\r\n" + 
+			"         		operator.localeCompare(\"xor\") !=0 && \r\n" + 
+			"         		operator.localeCompare(\"^\") !=0 \r\n" + 
+			"\r\n" + 
 			"         		){\r\n" + 
 			"         \r\n" + 
 			"         		return (false);\r\n" + 

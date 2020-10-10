@@ -98,7 +98,10 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
 			   if(isAnd(operators[opCtr++])) {
 				   result = (val & result);
 			   }
-			   else { result = (val | result);}
+			   else if(isOr(operators[opCtr])){
+				   result = (val | result);
+			   }
+			   else {result =(val ^ result);
 		   }
 		   
 		   
@@ -115,35 +118,6 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
    }
    
    
-   
-   /*
-   while (paraNames.hasMoreElements())
-   {  // For each parameter name.
-      para = (String)paraNames.nextElement();
-      if (!para.equalsIgnoreCase("submit"))
-      {
-         out.println("  <tr>");
-         out.println("    <td style=\"width: 20%\" width=\"20%\"><b>" + para + "</b></td>");
-
-         String[] values = request.getParameterValues(para);
-
-         if (values != null && !values[0].equals(""))
-            out.println("    <td>" + values[0] + "</td></tr>");
-         else
-            out.println("    <td>&nbsp;</td></tr>");
-
-         for (int i = 1; i < values.length; i++)
-         {
-            if (!values[i].equals(""))
-            {
-               out.println("  <tr>");
-               out.println("    <td style=\"width: 20%\" width=\"20%\">&nbsp;</td>");
-               out.println("    <td>" + values[i] + "</td></tr>");
-            }
-         }
-      }
-   }
-   */
    
    out.println("</table>");
    
@@ -277,6 +251,14 @@ private void PrintStyle(PrintWriter out)
 
 boolean isAnd(String val) {
 	if(val.equals("&&") || val.equals("&") || val.equals("and")) {
+		return true;
+	}
+	
+	return false;
+}
+
+boolean isOr(String val) {
+	if(val.equals("||") || val.equals("|") || val.equals("or")) {
 		return true;
 	}
 	
