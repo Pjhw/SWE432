@@ -46,8 +46,9 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
    PrintWriter out = response.getWriter ();
 
    
-   String predicate = request.getParameterNames().nextElement();
-   String[] values = request.getParameterValues(predicate).nextElement().predicate.split(" ");
+   String predicateField = request.getParameterNames().nextElement();
+   String[] values = request.getParameterValues(predicate).split(" ");
+   String[]  predicate = values[0].split(" ");
 
    PrintHead(out);
    PrintHeader(out);
@@ -60,7 +61,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
    out.println("  <tr bgcolor=\"#FFFFFF\">");
    
 
-   for(String value : values) {
+   for(String value : predicate) {
 	   out.println("   <td align=\"center\"><b>" + value + "</b></td>");
    }
    out.println("   <td align=\"center\"><b>Value</b></td>");
