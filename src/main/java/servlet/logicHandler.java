@@ -98,10 +98,10 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
 			   else { result = val | result;}
 		   }
 		   
-		   out.println("   <td align=\"center\"><b>" + result + "</b></td>");
-		   result = 1;
 	   }
 	   
+	   out.println("   <td align=\"center\"><b>" + result + "</b></td>");
+	   result = 1;
 	   out.println("</tr>");
 	     
 	   
