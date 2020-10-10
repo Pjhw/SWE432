@@ -50,13 +50,9 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
 
    PrintHead(out);
    PrintHeader(out);
-   out.println("");
-   out.println("<center><h2>Logic form handler</h2></center>");
-   out.println("<p>");
-   out.println("The following table lists all parameter names and");
-   out.println("their values that were submitted from your form.");
-   out.println("</p>");
-   out.println("");
+   out.println("<div class=form_title>");
+   out.println("<h1> Logic Predicate Form </h1></div>");
+   
    out.println("<p>");
    out.println("<table cellSpacing=1 cellPadding=1 width=\"75%\" border=1 bgColor=lavender>");
    out.println("");
@@ -93,9 +89,6 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
       }
    }
    out.println("</table>");
-   out.println("");
-   out.println("</body>");
-   
    
    PrintTail(out);
 
@@ -119,17 +112,11 @@ public void doGet (HttpServletRequest request,
    //Get the response's PrintWriter to return text to the client.
    PrintWriter out = response.getWriter();
             
-   String title = "This is from formHandler Servlet";
+   PrintHead(out);
+   PrintHeader(out);
+   PrintTail(out);
       
-   out.println("<html>");
-   out.println("<head>");
-   out.println("  <title>" + title + "</title>");
-   out.println("</head>");
-   out.println("<body>");
-   out.println("  <h1>" + title + "</h1>");
-   out.println("  <p>Please run the servlet from formHandler.html.");
-   out.println("</body>");
-   out.println("</html>");
+   
    out.close();
 }  // End doGet()
 
@@ -167,7 +154,7 @@ private void PrintHeader (PrintWriter out, String lhs, String rhs, String rslt)
    
    
    out.println("</div>");
-} // End PrintBody
+}
 
 /** *****************************************************
  *  Overloads PrintBody (out,lhs,rhs,rslt) to print a page
@@ -183,8 +170,9 @@ private void PrintHeader (PrintWriter out)
 ********************************************************* */
 private void PrintTail (PrintWriter out)
 {
-   out.println("");
-   out.println("</html>");
+    out.println("</body>");
+	out.println("");
+    out.println("</html>");
 } // End PrintTail
 
 private void PrintStyle(PrintWriter out)
