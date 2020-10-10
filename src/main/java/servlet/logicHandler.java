@@ -84,7 +84,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
    int result = 1;
    int val = 1;
 		   
-   for(int i = 0; i < rows; i++) {
+   for(int i = 0; i < 4; i++) {
 	   out.println("  <tr>"); 
 	   for(int j = n-1; j >= 0; j--) {
 		   val = (i/(int) Math.pow(2,  j))%2;
