@@ -215,35 +215,71 @@ private void PrintStyle(PrintWriter out)
 private void PrintJS(PrintWriter out) {
 	out.println("<script>");
 	
-	out.println("function CheckPredicate(){");
+	out.println("function CheckPredicate(){\r\n" + 
+			"         	var predicate = document.PredicateForm.PredicateField.value.split(\" \");\r\n" + 
+			"         	var valid = true;\r\n" + 
+			"         	var operand = true;\r\n" + 
+			"         	var errormsg = \"The following errors occurred\\n\\n\";\r\n" + 
+			"         	var one_operand = false;\r\n" + 
+			"         	\r\n" + 
+			"         	\r\n" + 
+			"         	//Loops through each word of the predicate string and evaluates it.\r\n" + 
+			"         	for(let i = 0; i < predicate.length; i++){\r\n" + 
+			"				//For checking the operand element of the string\r\n" + 
+			"         		if (operand){\r\n" + 
+			"         				\r\n" + 
+			"         			if (CheckOperand(predicate[i])){\r\n" + 
+			"         				operand = false;\r\n" + 
+			"         				valid = true;\r\n" + 
+			"         				one_operand = false;\r\n" + 
+			"         				continue;\r\n" + 
+			"         			}\r\n" + 
+			"         			else{\r\n" + 
+			"         				errormsg = errormsg.concat(\"Empty String for operand.\\n\");\r\n" + 
+			"         				valid = false;\r\n" + 
+			"         				break;\r\n" + 
+			"         			}\r\n" + 
+			"         			\r\n" + 
+			"         		}\r\n" + 
+			"				\r\n" + 
+			"				//For checking the operator element of the string\r\n" + 
+			"         		else{\r\n" + 
+			"         			one_operand = true;\r\n" + 
+			"         			\r\n" + 
+			"         			if(CheckOperator(predicate[i])){\r\n" + 
+			"         				operand = true;\r\n" + 
+			"         				valid = false;\r\n" + 
+			"         				continue;\r\n" + 
+			"         			}\r\n" + 
+			"         			else{\r\n" + 
+			"         				errormsg = errormsg.concat(\"Bad operator entered.\\n\");\r\n" + 
+			"         				valid = false;\r\n" + 
+			"         				break;\r\n" + 
+			"         				}\r\n" + 
+			"         		}\r\n" + 
+			"         	}\r\n" + 
+			"         	\r\n" + 
+			"			\r\n" + 
+			"			\r\n" + 
+			"         	if(valid){\r\n" + 
+			"         		return (true);\r\n" + 
+			"         	}	\r\n" + 
+			"			\r\n" + 
+			"         	else{\r\n" + 
+			"         		if(one_operand){\r\n" + 
+			"         			errormsg = errormsg.concat(\"Operator is missing an operand\\n\");\r\n" + 
+			"         		}\r\n" + 
+			"         		PrintErrorMsg(errormsg);\r\n" + 
+			"         		return(false);\r\n" + 
+			"         	}\r\n" + 
+			"         }");
 	
-	out.println("var predicate = document.PredicateForm.PredicateField.value.split(\" \");");
-	out.println("var valid = true;");
-	out.println("var operand = true;");
-	out.println("var errormsg = \"The following errors occurred\\n\\n\";");
-	out.println("var one_operand = false;");
-	
-	out.println("for(let i = 0; i < predicate.length; i++){");
-	out.println("if(operand{");
-	out.println("if(CheckOperand(predicate[i])){");
-	out.println("operand = false; valid = true; one_operand = false; continue;}");
-	out.println("else{errormsg = errormsg.concat(\"Empty String for operand.\\n\");");
-	out.println("valid = false; break;}}");
-	
-	out.println("else{ one_operand = true;");
-	out.println("if(CheckOperator(predicate[i])){");
-	out.println("operand = true; valid = false; continue;}");
-	out.println("else{");
-	out.println("errormsg = errormsg.concat(\"Bad operator entered.\\n\");");
-	out.println("valid = false; break; }}}");
-	
-	out.println("if(valid){return(true);}");
-	out.println("else{");
-	out.println("if(one_operand){errormsg=errormsg.concat(\"Operator is missing an operand\\n\");}");
-	out.println("PrintErrorMsg(errormsg); return(false);}}");
-	
-	out.println("function CheckOperator(operator){");
-	out.println("if(operand.length == 0){return(false);}return(true);}");
+	out.println("function CheckOperand(operand){\r\n" + 
+			"         	if(operand.length == 0){\r\n" + 
+			"         		return(false);\r\n" + 
+			"         	}\r\n" + 
+			"         	return (true);\r\n" + 
+			"         }");
 	
 	out.println("function CheckOperator(operator){");
 	out.println("if(operator.localeCompare(\"&\") !=0 && operator.localeCompare(\"&&\") !=0 && \r\n" + 
