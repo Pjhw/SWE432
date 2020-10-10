@@ -60,9 +60,14 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
    out.println("");
    out.println("  <tr bgcolor=\"#FFFFFF\">");
    
-
+   int operator = 0;
    for(String value : predicate) {
+	   if(operator) {
+		   operator = 0;
+		   continue;
+	   }
 	   out.println("   <td align=\"center\"><b>" + value + "</b></td>");
+	   operator = 1;
    }
    out.println("   <td align=\"center\"><b>Value</b></td>");
    out.println("  </tr>");
