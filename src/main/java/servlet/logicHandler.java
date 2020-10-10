@@ -80,8 +80,8 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
    out.println("  </tr>");
    
    int rows = (int) Math.pow(2, n);
-   int result;
-   int val;
+   int result = 1;
+   int val = 1;
 		   
    for(int i = 0; i < rows; i++) {
 	   out.println("  <tr>"); 
