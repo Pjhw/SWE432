@@ -122,7 +122,7 @@ private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    out.println("<h1> Logic Predicate Form </h1></div>");
    
    out.println("<div class=form>");
-   out.println("<form method=\"post\" action = \"formHandler\" name=\"PredicateForm\" ");
+   out.println("<form method=\"post\" action = \"logicHandler\" name=\"PredicateForm\" ");
    out.println("onSubmit=\" return(CheckPredicate())\">");
    
    out.println("<table><tr><td><input type = \"text\" name=\"PredicateField\"></tr> ");

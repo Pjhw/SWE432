@@ -25,7 +25,7 @@ import java.lang.*;
 // void doPost ()    --> Main method for gathering data and sending back
 // void doGet ()     --> Not used.
 //***********************************************************************
-public class formHandler extends HttpServlet
+public class logicHandler extends HttpServlet
 {
 
 /** **********************************************************
