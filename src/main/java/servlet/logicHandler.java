@@ -62,7 +62,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
    
    int operator = 0;
    for(String value : predicate) {
-	   if(operator) {
+	   if(operator==1) {
 		   operator = 0;
 		   continue;
 	   }
