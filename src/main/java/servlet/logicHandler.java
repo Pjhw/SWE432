@@ -48,7 +48,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
    String para;
    Enumeration paraNames = request.getParameterNames();
 
-   PrintHead(out;)
+   PrintHead(out);
 
    out.println("<body bgcolor=\"#EEEEEE\">");
    out.println("");
