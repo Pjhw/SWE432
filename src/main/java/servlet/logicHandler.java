@@ -12,6 +12,7 @@ import java.io.*;
 import java.util.*;
 import java.lang.*;
 
+@WebServlet( name = "logicHandler", urlPatterns = {"/logicHandler"} )
 // formHandler class
 // Generic form handler -- Echo all the parameters and values
 //     that a client inputs from an HTML form.
@@ -32,6 +33,7 @@ public class logicHandler extends HttpServlet
  *  doPost()
  *  gather data and respond to browser
  ************************************************************ */
+@Override
 public void doPost(HttpServletRequest request, HttpServletResponse response)
        throws ServletException, IOException
 {   
@@ -106,6 +108,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
   *   doGet()
   *   not used
  ********************************************************* */
+@Override
 public void doGet (HttpServletRequest request,
                    HttpServletResponse response)
        throws ServletException, IOException
