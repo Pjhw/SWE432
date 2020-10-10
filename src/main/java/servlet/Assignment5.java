@@ -121,7 +121,7 @@ private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    out.println("<div class=form_title>");
    out.println("<h1> Logic Predicate Form </h1></div>");
    
-   out.println("div class=form>");
+   out.println("<div class=form>");
    out.println("<form method=\"post\" action = \"\" name=\"PredicateForm\" ");
    out.println("onSubmit=\" return(CheckPredicate())\">");
    
