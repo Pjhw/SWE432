@@ -4,14 +4,18 @@
  */
 
 // Import Servlet Libraries
-import javax.servlet.*;
-import javax.servlet.http.*;
+import java.io.PrintWriter;
+import java.io.IOException;
 
-// Import Java Libraries
-import java.io.*;
-import java.util.*;
-import java.lang.*;
+import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+
+import javax.servlet.annotation.WebServlet;
 @WebServlet( name = "logicHandler", urlPatterns = {"/logicHandler"} )
 // formHandler class
 // Generic form handler -- Echo all the parameters and values
