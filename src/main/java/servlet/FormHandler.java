@@ -1,90 +1,122 @@
-/** *****************************************************************
-    assignment5.java
+** File name: formHandler.java 
+ * 
+ *  Author:    Quansheng Xiao, Jeff Offutt
+ */
 
-        @author Peter Hadeed
-********************************************************************* */
+// Import Servlet Libraries
+import javax.servlet.*;
+import javax.servlet.http.*;
 
-import java.io.PrintWriter;
-import java.io.IOException;
+// Import Java Libraries
+import java.io.*;
+import java.util.*;
+import java.lang.*;
 
-import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-//David: (1) adds servlet mapping annotation
-import javax.servlet.annotation.WebServlet;
-@WebServlet( name = "Assignment5", urlPatterns = {"/Assignment5"} )
+// formHandler class
+// Generic form handler -- Echo all the parameters and values
+//     that a client inputs from an HTML form.
+// Note: the name of the submit button in the form must be "submit"
+// (ignore case) or the servlet will print "submit" parameter.
 
 
-public class Assignment5 extends HttpServlet
+// CONSTRUCTOR: no constructor specified (default)
+//
+// ****************  Methods description  *******************************
+// void doPost ()    --> Main method for gathering data and sending back
+// void doGet ()     --> Not used.
+//***********************************************************************
+public class formHandler extends HttpServlet
 {
 
-// Location of servlet.
-// David: (5) adds the path of your form submit action
-static String Domain  = "";
-static String Path    = "";
-static String Servlet = "Assignment5";
+/** **********************************************************
+ *  doPost()
+ *  gather data and respond to browser
+ ************************************************************ */
+public void doPost(HttpServletRequest request, HttpServletResponse response)
+       throws ServletException, IOException
+{   
+   // first, set the "content type" header of the response
+   response.setContentType ("text/html");
+   //Get the response's PrintWriter to return text to the client.
+   PrintWriter toClient = response.getWriter ();
 
-// Button labels
-static String OperationA = "String A +  String B";
-static String OperationB = "String B + String A";
-//David: (2) adds Multiplication label
+   String para;
+   Enumeration paraNames = request.getParameterNames();
 
+   toClient.println("<html>");
+   toClient.println("<head>");
+   toClient.println("  <title>Generic form handler</title>");
+   toClient.println("</head>");
+
+   toClient.println("<body bgcolor=\"#EEEEEE\">");
+   toClient.println("");
+   toClient.println("<center><h2>Generic form handler</h2></center>");
+   toClient.println("<p>");
+   toClient.println("The following table lists all parameter names and");
+   toClient.println("their values that were submitted from your form.");
+   toClient.println("</p>");
+   toClient.println("");
+   toClient.println("<p>");
+   toClient.println("<table cellSpacing=1 cellPadding=1 width=\"75%\" border=1 bgColor=lavender>");
+   toClient.println("");
+   toClient.println("  <tr bgcolor=\"#FFFFFF\">");
+   toClient.println("   <th align=\"center\"><b>Parameter</b></td>");
+   toClient.println("   <th align=\"center\"><b>Value</b></td>");
+   toClient.println("  </tr>");
+
+   while (paraNames.hasMoreElements())
+   {  // For each parameter name.
+      para = (String)paraNames.nextElement();
+      if (!para.equalsIgnoreCase("submit"))
+      {
+         toClient.println("  <tr>");
+         toClient.println("    <td style=\"width: 20%\" width=\"20%\"><b>" + para + "</b></td>");
+
+         String[] values = request.getParameterValues(para);
+
+         if (values != null && !values[0].equals(""))
+            toClient.println("    <td>" + values[0] + "</td></tr>");
+         else
+            toClient.println("    <td>&nbsp;</td></tr>");
+
+         for (int i = 1; i < values.length; i++)
+         {
+            if (!values[i].equals(""))
+            {
+               toClient.println("  <tr>");
+               toClient.println("    <td style=\"width: 20%\" width=\"20%\">&nbsp;</td>");
+               toClient.println("    <td>" + values[i] + "</td></tr>");
+            }
+         }
+      }
+   }
+   toClient.println("</table>");
+   toClient.println("");
+   toClient.println("</body>");
+   toClient.println("</html>");
+
+   toClient.println("");
+
+   // Close the writer; the response is done.
+   toClient.close();      
+} //end of doPost()
+   
 
 /** *****************************************************
- *  Overrides HttpServlet's doPost().
- *  Converts the values in the form, performs the operation
- *  indicated by the submit button, and sends the results
- *  back to the client.
-********************************************************* */
-@Override
-public void doPost (HttpServletRequest request, HttpServletResponse response)
-   throws ServletException, IOException
-{
-   String rslt  = new String();
-   String operation = request.getParameter("Operation");
-   String lhsStr = request.getParameter("LHS");
-   String rhsStr = request.getParameter("RHS");
-
-
-   if (operation.equals(OperationA))
-   {
-      rslt = new String(lhsStr + rhsStr);
-   }
-   else if (operation.equals(OperationB))
-   {
-      rslt = new String(rhsStr + lhsStr);
-   }
-   //David: (6) adds multiplication action's resolution
-
-   response.setContentType("text/html");
-   PrintWriter out = response.getWriter();
-   PrintHead(out);
-   PrintBody(out, lhsStr, rhsStr, rslt);
-   PrintTail(out);
-}  // End doPost
-
-/** *****************************************************
- *  Overrides HttpServlet's doGet().
- *  Prints an HTML page with a blank form.
-********************************************************* */
-@Override
-public void doGet (HttpServletRequest request, HttpServletResponse response)
+  *   doGet()
+  *   not used
+ ********************************************************* */
+public void doGet (HttpServletRequest request,
+                   HttpServletResponse response)
        throws ServletException, IOException
 {
-   response.setContentType("text/html");
-   PrintWriter out = response.getWriter();
-   PrintHead(out);
-   PrintBody(out);
-   PrintTail(out);
-} // End doGet
+	response.setContentType("text/html");
+	   PrintWriter out = response.getWriter();
+	   PrintHead(out);
+	   PrintBody(out);
+	   PrintTail(out);
+}  // End doGet()
 
-/** *****************************************************
- *  Prints the <head> of the HTML page, no <body>.
-********************************************************* */
 private void PrintHead (PrintWriter out)
 {
    out.println("<html>");
@@ -211,4 +243,4 @@ private void PrintStyle(PrintWriter out)
 	
 }
 
-} 
+}  // End formHandler class
