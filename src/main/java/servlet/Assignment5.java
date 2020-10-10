@@ -116,6 +116,33 @@ private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/Assignment5\" class = current>Assignment 5</a></li>");
    out.println("</ul>");
    
+   
+   //Form print
+   out.println("<div class=form_title>");
+   out.println("<h1> Logic Predicate Form </h1></div>");
+   
+   out.println("div class=form>");
+   out.println("<form method=\"post\" action = \"\" name=\"PredicateForm\" ");
+   out.println("onSubmit=\" return(CheckPredicate())\">");
+   
+   out.println("<table><tr><td><input type = \"text\" name=\"PredicateField\"></tr> ");
+   out.println("<tr><td colspan=2 align=middle<input type=\"submit\" value=\"Submit\"></tr>");
+   out.println("</table></form></div>");
+   
+   //Form Description
+   out.println("<div class=form_description><p style=\"margin-left: 10%;\"");
+   out.println("<br><br>");
+   out.println("X -- X Y X -- X Y X Y X, Etc...");
+   out.println("<br><br>");
+   out.println("<b> Allowed </b><br><br>");
+   out.println("1. Operators - && : & : and : || : | : or <br><br>");
+   out.println("2. Operands - Anything counts as an operand.<br><br>");
+   out.println("All Operands and Operators must be separated by a SPACE<br><br>");
+   out.println("<b>Not Allowed</b><br><br>");
+   out.println("1. Empty Forms<br><br>");
+   out.println("2. Logical operators with only one operand (i.e. \"1 and \"");
+   out.println("</p></div>");
+   
    out.println("</div>");
    out.println("</body>");
 } // End PrintBody
