@@ -92,14 +92,15 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
 		   
 		   if(j== (n-1)) {result = val;}
 		   
-		   /*
+		   
 		   else {
-			   if(isAnd(operators[n-j])) {
+			   if(operators[n-j].equals("&&") || operators[n-j].equals("&") ||
+					   operators[n-j].equals("and")) {
 				   result = (val & result);
 			   }
 			   else { result = (val | result);}
 		   }
-		   */
+		   
 		   
 	   }
 	   
