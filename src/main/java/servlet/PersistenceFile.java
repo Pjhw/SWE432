@@ -42,7 +42,7 @@ public class PersistenceFile extends HttpServlet{
   {
      String name = request.getParameter(Data.NAME.name());
      String age = request.getParameter(Data.AGE.name());
-     String eye = request.getParameter(Data.AGE.name());
+     String eye = request.getParameter(Data.EYE.name());
      
      String error = "";
      if(name == null){
