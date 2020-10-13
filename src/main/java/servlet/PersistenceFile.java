@@ -1,7 +1,4 @@
 package servlet;
-// Written by David Gonzalez, April 2020
-// Modified by Jeff Offutt
-// Built to deploy in github with Heroku
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -45,12 +42,18 @@ public class PersistenceFile extends HttpServlet{
   {
      String name = request.getParameter(Data.NAME.name());
      String age = request.getParameter(Data.AGE.name());
-
+     String eye = request.getParameter(Data.AGE.name());
+     
      String error = "";
      if(name == null){
        error= "<li>Name is required</li>";
        name = "";
      }
+     
+     if(eye == null){
+         error= "<li>Eye Color is required</li>";
+         eye = "";
+       }
 
      if(age == null){
        error+= "<li>Age is required.<li>";
@@ -79,7 +82,7 @@ public class PersistenceFile extends HttpServlet{
      if (error.length() == 0){
        PrintWriter entriesPrintWriter =
           new PrintWriter(new FileWriter(RESOURCE_FILE, true), true);
-       entriesPrintWriter.println(name+VALUE_SEPARATOR+age);
+       entriesPrintWriter.println(name+VALUE_SEPARATOR+age+VALUE_SEPARATOR+eye);
        entriesPrintWriter.close();
 
        printHead(out);
@@ -87,7 +90,7 @@ public class PersistenceFile extends HttpServlet{
        printTail(out);
      }else{
        printHead(out);
-       printBody(out, name, age, error);
+       printBody(out, name, age, eye, error);
        printTail(out);
      }
   }
@@ -128,7 +131,7 @@ public class PersistenceFile extends HttpServlet{
    *  Prints the <BODY> of the HTML page
   ********************************************************* */
   private void printBody (
-    PrintWriter out, String name, String age, String error){
+    PrintWriter out, String name, String age, String error, String eye){
      out.println("<body onLoad=\"setFocus()\">");
      out.println("<p>");
      out.println(
@@ -158,6 +161,12 @@ public class PersistenceFile extends HttpServlet{
      out.println("   <td><input type=\"text\"  name=\""+Data.AGE.name()
       +"\" oninput=\"this.value=this.value.replace(/[^0-9]/g,'');\" value=\""
       +age+"\" size=3 required></td>");
+     out.println("  </tr>");
+     out.println("  <tr>");
+     out.println("   <td>Eye-Color:</td>");
+     out.println("   <td><input type=\"text\"  name=\""+Data.EYE.name()
+      +"\"  value=\""
+      +eye+"\" size=20 required></td>");
      out.println("  </tr>");
      out.println(" </table>");
      out.println(" <br>");
