@@ -221,6 +221,7 @@ private void PrintJS(PrintWriter out) {
 			"         	var operand = true;\r\n" + 
 			"         	var errormsg = \"The following errors occurred\\n\\n\";\r\n" + 
 			"         	var one_operand = false;\r\n" + 
+			"           var badOp = false;\r\n" +
 			"         	\r\n" + 
 			"         	\r\n" + 
 			"         	//Loops through each word of the predicate string and evaluates it.\r\n" + 
@@ -252,9 +253,11 @@ private void PrintJS(PrintWriter out) {
 			"         				continue;\r\n" + 
 			"         			}\r\n" + 
 			"         			else{\r\n" + 
+			"                       if(!badOp){          "
 			"         				errormsg = errormsg.concat(\"Bad operator entered.\\n\");\r\n" + 
 			"         				valid = false;\r\n" + 
-			"         				continue;\r\n" + 
+			"                       badOp = true;\r\n" +
+			"         				continue;}\r\n" + 
 			"         				}\r\n" + 
 			"         		}\r\n" + 
 			"         	}\r\n" + 
