@@ -269,7 +269,7 @@ private void PrintJS(PrintWriter out) {
 			"         	}	\r\n" + 
 			"			\r\n" + 
 			"         	else{\r\n" + 
-			"         		if(one_operand){\r\n" + 
+			"         		if(one_operand && !badOp){\r\n" + 
 			"         			errormsg = errormsg.concat(\"Operator is missing an operand\\n\");\r\n" + 
 			"         		}\r\n" + 
 			"         		PrintErrorMsg(errormsg);\r\n" + 
