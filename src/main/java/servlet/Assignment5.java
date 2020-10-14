@@ -190,7 +190,7 @@ private void PrintStyle(PrintWriter out)
 	out.println("border-radius: 20px;margin-bottom:10px;background-color:lightgray;}");
 	
 	out.println("div.content{padding: 1% 1%;background-color: efeff5;");
-	out.println("border-radius:20px;height:97%;}");
+	out.println("border-radius:20px;height:auto; overflow: auto;}");
 	
 	out.println("body{background-color: darkblue;}");
 	
