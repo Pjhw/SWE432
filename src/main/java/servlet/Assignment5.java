@@ -253,7 +253,7 @@ private void PrintJS(PrintWriter out) {
 			"         				continue;\r\n" + 
 			"         			}\r\n" + 
 			"         			else{\r\n" + 
-			"                       if(!badOp){          "
+			"                       if(!badOp){          "+
 			"         				errormsg = errormsg.concat(\"Bad operator entered.\\n\");\r\n" + 
 			"         				valid = false;\r\n" + 
 			"                       badOp = true;\r\n" +
