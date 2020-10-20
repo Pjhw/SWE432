@@ -111,10 +111,12 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    out.println(" <br><input type=\"checkbox\" name=\"attrib_remove\">Remove");
    out.println(" <input type=\"submit\" name=\"update\" value=\"Update\">");
    out.println("</form>");
-   out.println("<hr>");
    
    out.print  ("<br><br><a href=\"/attributeServlet?action=invalidate\">");
    out.println("Invalidate the session</a>");
+   
+   out.println("<hr>");
+   
 
    out.println("Attributes in this session:");
    Enumeration e = session.getAttributeNames();
@@ -122,10 +124,18 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    {
       String att_name  = (String) e.nextElement();
       String att_value = (String) session.getAttribute(att_name);
+      
+      String att_name2  = (String) e.nextElement();
+      String att_value2 = (String) session.getAttribute(att_name);
 
       out.print  ("<br><b>Name:</b> ");
       out.println(att_name);
       out.print  ("<br><b>Value:</b> ");
+      out.println(att_value);
+      
+      out.print  ("<br><b>Name2:</b> ");
+      out.println(att_name);
+      out.print  ("<br><b>Value2:</b> ");
       out.println(att_value);
    } //end while
 
