@@ -7,6 +7,8 @@ import javax.servlet.http.*;
 // Import Java Libraries
 import java.io.*;
 import java.util.Enumeration;
+
+import javax.servlet.annotation.WebServlet;
 @WebServlet( name = "attributeServlet", urlPatterns = {"/attributeServlet"} )
 public class attributeServlet extends HttpServlet
 {
