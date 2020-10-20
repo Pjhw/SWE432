@@ -8,7 +8,7 @@ import javax.servlet.http.*;
 import java.io.*;
 import java.util.Date;
 
-public class sessionLifeCycle extends HttpServlet
+public class SessionLifeCycle2 extends HttpServlet
 {
 public void doGet (HttpServletRequest request, HttpServletResponse response)
        throws ServletException, IOException
