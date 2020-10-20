@@ -7,13 +7,9 @@ import javax.servlet.http.*;
 // Import Java Libraries
 import java.io.*;
 import java.util.Date;
-import javax.servlet.annotation.WebServlet;
 
-@WebServlet(name = "session", urlPatterns = {"/session"})
-public class SessionLifeCycle extends HttpServlet
+public class sessionLifeCycle extends HttpServlet
 {
- // The link will have a parameter builtin
-      String lifeCycleURL = "/session";
 public void doGet (HttpServletRequest request, HttpServletResponse response)
        throws ServletException, IOException
 {
@@ -38,7 +34,8 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
       out.println("<p>Your session has been invalidated.</P>");
 
       // Create a link so the user can create a new session.
-    
+      // The link will have a parameter builtin
+      String lifeCycleURL = "/offutt/servlet/sessionLifeCycle";
       out.println("<a href=\"" + lifeCycleURL + "?action=newSession\">");
       out.println("Create new session</A>");
 
@@ -86,6 +83,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
       out.print  ("<br>Maximum inactive interval (seconds): ");
       out.println(session.getMaxInactiveInterval());
 
+      String lifeCycleURL = "/offutt/servlet/sessionLifeCycle";
       out.print  ("<br><br><a href=\"" + lifeCycleURL + "?action=invalidate\">");
       out.println("Invalidate the session</a>");
       out.print  ("<br><a href=\"" + lifeCycleURL + "\">");
