@@ -8,7 +8,7 @@ import javax.servlet.http.*;
 import java.io.*;
 import java.util.Enumeration;
 
-public class attributeServlet extends HttpServlet
+public class AttributeServlet2 extends HttpServlet
 {
 public void doGet (HttpServletRequest request, HttpServletResponse response)
        throws ServletException, IOException
