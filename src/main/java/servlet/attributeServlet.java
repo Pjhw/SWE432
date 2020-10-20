@@ -60,6 +60,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
 
    String name   = request.getParameter("attrib_name");
    String value  = request.getParameter("attrib_value");
+   
    String name2   = request.getParameter("attrib_name2");
    String value2  = request.getParameter("attrib_value2");
    String remove = request.getParameter("attrib_remove");
@@ -73,6 +74,11 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
       if ((name != null && name.length() > 0) && (value != null && value.length() > 0))
       {
          session.setAttribute(name, value);
+      }
+      
+      if ((name2 != null && name2.length() > 0) && (value2 != null && value2.length() > 0))
+      {
+         session.setAttribute(name2, value2);
       }
 
    }
