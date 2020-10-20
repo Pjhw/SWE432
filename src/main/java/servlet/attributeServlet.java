@@ -7,7 +7,7 @@ import javax.servlet.http.*;
 // Import Java Libraries
 import java.io.*;
 import java.util.Enumeration;
-
+@WebServlet( name = "attributeServlet", urlPatterns = {"/attributeServlet"} )
 public class attributeServlet extends HttpServlet
 {
 public void doGet (HttpServletRequest request, HttpServletResponse response)
