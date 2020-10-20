@@ -103,10 +103,10 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    out.println(" <input type=\"text\" size=\"10\" name=\"attrib_value\">");
 
    out.println("<br> Name: ");
-   out.println(" <input type=\"text\" size=\"10\" name=\"attrib_name\">");
+   out.println(" <input type=\"text\" size=\"10\" name=\"attrib_name2\">");
 
    out.println(" Value: ");
-   out.println(" <input type=\"text\" size=\"10\" name=\"attrib_value\">");
+   out.println(" <input type=\"text\" size=\"10\" name=\"attrib_value2\">");
    
    out.println(" <br><input type=\"checkbox\" name=\"attrib_remove\">Remove");
    out.println(" <input type=\"submit\" name=\"update\" value=\"Update\">");
@@ -134,9 +134,9 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
       out.println(att_value);
       
       out.print  ("<br><b>Name2:</b> ");
-      out.println(att_name);
+      out.println(att_name2);
       out.print  ("<br><b>Value2:</b> ");
-      out.println(att_value);
+      out.println(att_value2);
    } //end while
 
    out.println("</body>");
