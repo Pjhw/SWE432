@@ -125,8 +125,9 @@ private void PrintBody (PrintWriter out)
    out.println("<form method=\"post\" action = \"logicHandler\" name=\"PredicateForm\" ");
    out.println("onSubmit=\" return(CheckPredicate())\">");
    
-   out.println("<table><tr><td><input list=\"predicates\" type = \"text\" name=\"PredicateField\">"
+   out.println("<table><tr><td><input list=\"predicates\" name=\"PredicateField\">"
    		+ "<datalist id=\"predicates\">"
+   		+ "<option value=\"a and b\">"
    		+ "</datalist></td></tr> ");
    out.println("<tr><td colspan=2 align=middle><input type=\"submit\" value=\"Submit\"></td>"
    		+ "</tr>");
