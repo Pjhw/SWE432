@@ -94,19 +94,19 @@ private void PrintHead (PrintWriter out)
  *  Prints the <BODY> of the HTML page with the form data
  *  values from the parameters.
 ********************************************************* */
-private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
+private void PrintBody (PrintWriter out)
 {
    out.println("<body>");
    out.println("<div class=content>");
    out.println("<div class=header>");
-   out.println("<h1>Peter Hadeed - SWE 432 - Assignment 5</h1>");
+   out.println("<h1>Peter Hadeed - SWE 432 - Assignment 7</h1>");
    out.println("</div>");
    
    out.println("<ul>");
    out.println("<li><a href=\"http://mason.gmu.edu/~phadeed/\">Home</a></li>");
    out.println("<li><a href=\"http://mason.gmu.edu/~phadeed/Assignment_3.html\">Assignment 3</a></li>");
    out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/Assignment5\">Assignment 5</a></li>");
-
+   out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/Assignment7\" class = current>Assignment 7</a></li>");
 
    out.println("</ul>");
    
@@ -147,14 +147,6 @@ private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    out.println("</body>");
 } // End PrintBody
 
-/** *****************************************************
- *  Overloads PrintBody (out,lhs,rhs,rslt) to print a page
- *  with blanks in the form fields.
-********************************************************* */
-private void PrintBody (PrintWriter out)
-{
-   PrintBody(out, "", "", "");
-}
 
 /** *****************************************************
  *  Prints the bottom of the HTML page.
