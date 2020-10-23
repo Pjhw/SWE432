@@ -16,22 +16,21 @@ import javax.servlet.http.HttpServletResponse;
 
 //David: (1) adds servlet mapping annotation
 import javax.servlet.annotation.WebServlet;
-@WebServlet( name = "Assignment5", urlPatterns = {"/Assignment5"} )
+@WebServlet( name = "Assignment7", urlPatterns = {"/Assignment7"} )
 
 
 public class Assignment5 extends HttpServlet
 {
 
-// Location of servlet.
-// David: (5) adds the path of your form submit action
-static String Domain  = "";
-static String Path    = "";
-static String Servlet = "Assignment5";
+	
 
-// Button labels
-static String OperationA = "String A +  String B";
-static String OperationB = "String B + String A";
-//David: (2) adds Multiplication label
+	static String Domain  = "";
+	static String Path    = "";
+	static String Servlet = "Assignment7";
+
+
+	static enum Data {PREDICATE};
+	static String RESOURCE_FILE = "predicates.txt"
 
 
 /** *****************************************************
@@ -44,27 +43,19 @@ static String OperationB = "String B + String A";
 public void doPost (HttpServletRequest request, HttpServletResponse response)
    throws ServletException, IOException
 {
-   String rslt  = new String();
-   String operation = request.getParameter("Operation");
-   String lhsStr = request.getParameter("LHS");
-   String rhsStr = request.getParameter("RHS");
-
-
-   if (operation.equals(OperationA))
-   {
-      rslt = new String(lhsStr + rhsStr);
-   }
-   else if (operation.equals(OperationB))
-   {
-      rslt = new String(rhsStr + lhsStr);
-   }
-   //David: (6) adds multiplication action's resolution
-
-   response.setContentType("text/html");
-   PrintWriter out = response.getWriter();
-   PrintHead(out);
-   PrintBody(out, lhsStr, rhsStr, rslt);
-   PrintTail(out);
+		String predicate = request.getParameter(Data.PREDICATE.name());
+		
+		
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		
+		PrintWriter entriesPrintWriter = new PrintWriter(new FileWriter(RESOURCE_FILE, true), true);
+	    entriesPrintWriter.println(predicate);
+	    entriesPrintWriter.close();
+	    
+		PrintHead(out);
+		PrintBody(out, lhsStr, rhsStr, rslt);
+		PrintTail(out);
 }  // End doPost
 
 /** *****************************************************
@@ -114,8 +105,9 @@ private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    out.println("<ul>");
    out.println("<li><a href=\"http://mason.gmu.edu/~phadeed/\">Home</a></li>");
    out.println("<li><a href=\"http://mason.gmu.edu/~phadeed/Assignment_3.html\">Assignment 3</a></li>");
-   out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/Assignment5\" class = current>Assignment 5</a></li>");
-   out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/Assignment7\">Assignment 7</a></li>");
+   out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/Assignment5\">Assignment 5</a></li>");
+
+
    out.println("</ul>");
    
    
@@ -127,8 +119,11 @@ private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    out.println("<form method=\"post\" action = \"logicHandler\" name=\"PredicateForm\" ");
    out.println("onSubmit=\" return(CheckPredicate())\">");
    
-   out.println("<table><tr><td><input type = \"text\" name=\"PredicateField\"></tr> ");
-   out.println("<tr><td colspan=2 align=middle><input type=\"submit\" value=\"Submit\"></tr>");
+   out.println("<table><tr><td><input list=\"predicates\" type = \"text\" name=\"PredicateField\">"
+   		+ "<datalist id=\"predicates\">"
+   		+ "</datalist></td></tr> ");
+   out.println("<tr><td colspan=2 align=middle><input type=\"submit\" value=\"Submit\"></td>"
+   		+ "</tr>");
    out.println("</table></form></div>");
    
    //Form Description

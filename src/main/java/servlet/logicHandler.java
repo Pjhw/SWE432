@@ -32,6 +32,9 @@ import javax.servlet.annotation.WebServlet;
 public class logicHandler extends HttpServlet
 {
 
+	
+	static String RESOURCE_FILE = "predicates.txt";
+	
 /** **********************************************************
  *  doPost()
  *  gather data and respond to browser
@@ -50,6 +53,10 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
    String[] values = request.getParameterValues(predicateField);
    String[]  predicate = values[0].split(" ");
 
+   PrintWriter entriesPrintWriter = new PrintWriter(new FileWriter(RESOURCE_FILE, true), true);
+   entriesPrintWriter.println(values[0]);
+   entriesPrintWriter.close();
+   
    PrintHead(out);
    PrintHeader(out);
    out.println("<div class=form_title>");
