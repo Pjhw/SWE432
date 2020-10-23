@@ -30,7 +30,7 @@ public class Assignment5 extends HttpServlet
 
 
 	static enum Data {PREDICATE};
-	static String RESOURCE_FILE = "predicates.txt"
+	static String RESOURCE_FILE = "predicates.txt";
 
 
 /** *****************************************************
