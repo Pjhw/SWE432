@@ -54,7 +54,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
 	    entriesPrintWriter.close();
 	    
 		PrintHead(out);
-		PrintBody(out, lhsStr, rhsStr, rslt);
+		PrintBody(out);
 		PrintTail(out);
 }  // End doPost
 
