@@ -19,7 +19,7 @@ import javax.servlet.annotation.WebServlet;
 @WebServlet( name = "Assignment7", urlPatterns = {"/Assignment7"} )
 
 
-public class Assignment5 extends HttpServlet
+public class Assignment7 extends HttpServlet
 {
 
 	
