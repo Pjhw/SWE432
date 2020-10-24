@@ -131,7 +131,7 @@ private void PrintBody (PrintWriter out)
    		+ "<datalist id=\"predicates\">");
    
    try {
-       File file = new File("predicates.txt");
+       File file = new File(this.getServletContext().getRealPath("predicates.txt"));
        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
        String line;
        while ((line = bufferedReader.readLine()) != null) {
