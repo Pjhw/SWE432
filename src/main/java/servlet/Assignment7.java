@@ -135,12 +135,12 @@ private void PrintBody (PrintWriter out)
        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
        String line;
        while ((line = bufferedReader.readLine()) != null) {
-    	   out.println("<option value=\"" + line + "\">")
+    	   out.println("<option value=\"" + line + "\">");
          }
        }
        bufferedReader.close();
-     } 
-	
+
+       
 	catch (FileNotFoundException ex) {ex.printStackTrace();} 
 	
 	catch (IOException ex) {ex.printStackTrace();}
