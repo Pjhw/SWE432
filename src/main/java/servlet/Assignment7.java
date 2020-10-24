@@ -137,8 +137,9 @@ private void PrintBody (PrintWriter out)
        while ((line = bufferedReader.readLine()) != null) {
     	   out.println("<option value=\"" + line + "\">");
          }
-       }
+       
        bufferedReader.close();
+       }
 
        
 	catch (FileNotFoundException ex) {ex.printStackTrace();} 
