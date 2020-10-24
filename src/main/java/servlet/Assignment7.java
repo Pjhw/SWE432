@@ -102,22 +102,6 @@ private void PrintHead (PrintWriter out)
 ********************************************************* */
 private void PrintBody (PrintWriter out)
 {
-	
-	
-	try {
-        File file = new File("predicates.txt");
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-        String line;
-        while ((line = bufferedReader.readLine()) != null) {
-          }
-          out.println("  </tr>");
-        }
-        bufferedReader.close();
-      } 
-	
-	catch (FileNotFoundException ex) {ex.printStackTrace();} 
-	
-	catch (IOException ex) {ex.printStackTrace();}
     
     
    out.println("<body>");
