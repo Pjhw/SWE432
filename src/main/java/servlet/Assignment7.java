@@ -102,6 +102,24 @@ private void PrintHead (PrintWriter out)
 ********************************************************* */
 private void PrintBody (PrintWriter out)
 {
+	
+	
+	try {
+        File file = new File("predicates.txt");
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+        String line;
+        while ((line = bufferedReader.readLine()) != null) {
+          }
+          out.println("  </tr>");
+        }
+        bufferedReader.close();
+      } 
+	
+	catch (FileNotFoundException ex) {ex.printStackTrace();} 
+	
+	catch (IOException ex) {ex.printStackTrace();}
+    
+    
    out.println("<body>");
    out.println("<div class=content>");
    out.println("<div class=header>");
@@ -126,9 +144,25 @@ private void PrintBody (PrintWriter out)
    out.println("onSubmit=\" return(CheckPredicate())\">");
    
    out.println("<table><tr><td><input autocomplete=\"off\" list=\"predicates\" name=\"PredicateField\">"
-   		+ "<datalist id=\"predicates\">"
-   		+ "<option value=\"a and b\">"
-   		+ "</datalist></td></tr> ");
+   		+ "<datalist id=\"predicates\">");
+   
+   try {
+       File file = new File("predicates.txt");
+       BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+       String line;
+       while ((line = bufferedReader.readLine()) != null) {
+    	   out.println("<option value=\"" + line + "\">")
+         }
+       }
+       bufferedReader.close();
+     } 
+	
+	catch (FileNotFoundException ex) {ex.printStackTrace();} 
+	
+	catch (IOException ex) {ex.printStackTrace();}
+	
+
+   out.println("</datalist></td></tr> ");
    out.println("<tr><td colspan=2 align=middle><input type=\"submit\" value=\"Submit\"></td>"
    		+ "</tr>");
    out.println("</table></form></div>");
