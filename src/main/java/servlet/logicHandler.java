@@ -266,7 +266,7 @@ private void PrintHead (PrintWriter out)
  *  Prints the <BODY> of the HTML page with the form data
  *  values from the parameters.
 ********************************************************* */
-private void PrintHeader (PrintWriter out, String lhs, String rhs, String rslt)
+private void PrintHeader (PrintWriter out)
 {
    out.println("<body>");
    out.println("<div class=content>");
@@ -284,14 +284,6 @@ private void PrintHeader (PrintWriter out, String lhs, String rhs, String rslt)
    
 }
 
-/** *****************************************************
- *  Overloads PrintBody (out,lhs,rhs,rslt) to print a page
- *  with blanks in the form fields.
-********************************************************* */
-private void PrintHeader (PrintWriter out)
-{
-   PrintHeader(out, "", "", "");
-}
 
 /** *****************************************************
  *  Prints the bottom of the HTML page.

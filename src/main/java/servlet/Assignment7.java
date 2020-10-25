@@ -247,6 +247,25 @@ private void PrintHead (PrintWriter out)
    out.println("");
 } // End PrintHead
 
+private void PrintHeader (PrintWriter out)
+{
+   out.println("<body>");
+   out.println("<div class=content>");
+   out.println("<div class=header>");
+   out.println("<h1>Peter Hadeed - SWE 432 - Assignment 5</h1>");
+   out.println("</div>");
+   
+   out.println("<ul>");
+   out.println("<li><a href=\"http://mason.gmu.edu/~phadeed/\">Home</a></li>");
+   out.println("<li><a href=\"http://mason.gmu.edu/~phadeed/Assignment_3.html\">Assignment 3</a></li>");
+   out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/Assignment5\">Assignment 5</a></li>");
+   out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/Assignment7\" class = current>Assignment 7</a></li>");
+   out.println("</ul>");
+   
+   
+   
+}
+
 /** *****************************************************
  *  Prints the <BODY> of the HTML page with the form data
  *  values from the parameters.
