@@ -136,8 +136,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
    PrintWriter out = response.getWriter ();
 
    
-   String predicateField = request.getParameterNames().nextElement();
-   String[] values = request.getParameterValues(predicateField);
+   String[] values = request.getParameterValues("PredicateField");
    String[]  predicate = values[0].split(" ");
 
    EntryManager entryManager = new EntryManager();
