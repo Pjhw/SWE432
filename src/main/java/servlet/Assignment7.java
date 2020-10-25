@@ -146,7 +146,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
 	   
 	   EntryManager entryManager = new EntryManager();
 	   entryManager.setFilePath(RESOURCE_FILE);
-	   Entries newEntries=entryManager.save(values[0]);
+	   Entries newEntries=entryManager.save(values);
 	   
 	   PrintHead(out);
 	   PrintHeader(out);
@@ -172,7 +172,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
 		   operator = 1;
 	   }
 	   
-	   out.println("   <td align=\"center\"><b>" + values[0] + "</b></td>");
+	   out.println("   <td align=\"center\"><b>" + values + "</b></td>");
 	   out.println("  </tr>");
 	   
 	   
