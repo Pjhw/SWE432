@@ -61,7 +61,7 @@ public class Assignment7 extends HttpServlet
 	    	Entries entries = getAll();
 	      Entry newEntry = new Entry();
 	      newEntry.predicate = predicate;
-	      for(entry : entries.entries) {
+	      for(Entry entry : entries.entries) {
 	    	  if(entry.predicate.equals(predicate)) {
 	    		  contains = 1;
 	    	  }
