@@ -37,7 +37,6 @@ public class logicHandler extends HttpServlet
 {
 
 	
-	static String RESOURCE_FILE = "predicates.txt";
 	static enum Data {PREDICATE};
 	  static String RESOURCE_FILE = "predicates.json";
 
