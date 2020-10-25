@@ -67,7 +67,7 @@ public class Assignment7 extends HttpServlet
 	    	  }
 	      }
 	      
-	      if(!contains)entries.entries.add(newEntry);
+	      if(contains==0)entries.entries.add(newEntry);
 	      
 	      try{
 	        FileWriter fileWriter = new FileWriter(filePath);
@@ -141,7 +141,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
 	   PrintWriter out = response.getWriter ();
 	   
 	   String values = request.getParameter("PredicateField");
-	   String[]  predicate = values[0].split(" ");
+	   String[]  predicate = values.split(" ");
 
 	   
 	   EntryManager entryManager = new EntryManager();
