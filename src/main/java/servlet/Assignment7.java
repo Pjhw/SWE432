@@ -127,20 +127,93 @@ public class Assignment7 extends HttpServlet
 public void doPost (HttpServletRequest request, HttpServletResponse response)
    throws ServletException, IOException
 {
-		String predicate = request.getParameter(Data.PREDICATE.name());
-		
-		
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		
-		PrintWriter entriesPrintWriter = new PrintWriter(new FileWriter(RESOURCE_FILE, true), true);
-	    entriesPrintWriter.println(predicate);
-	    entriesPrintWriter.close();
-	    
-		PrintHead(out);
-		PrintBody(out);
-		PrintTail(out);
-}  // End doPost
+	// first, set the "content type" header of the response
+	   response.setContentType ("text/html");
+	   //Get the response's PrintWriter to return text to the client.
+	   PrintWriter out = response.getWriter ();
+
+	   
+	   String[] values = request.getParameterValues("PredicateField");
+	   String[]  predicate = values[0].split(" ");
+
+	   EntryManager entryManager = new EntryManager();
+	   entryManager.setFilePath(RESOURCE_FILE);
+	   Entries newEntries=entryManager.save(values[0]);
+	   
+	   PrintWriter entriesPrintWriter = new PrintWriter(new FileWriter(RESOURCE_FILE, true), true);
+	   entriesPrintWriter.println(values[0]);
+	   entriesPrintWriter.close();
+	   
+	   PrintHead(out);
+	   PrintHeader(out);
+	   out.println("<div class=form_title>");
+	   out.println("<h1> Logic Predicate Form </h1></div>");
+	   
+	   out.println("<table cellSpacing=1 cellPadding=1 width=\"75%\" border=1 bgColor=lavender>");
+	   out.println("");
+	   out.println("  <tr bgcolor=\"#FFFFFF\">");
+	   
+	   int operator = 0;
+	   int n = predicate.length/2  + 1;
+	   String[] operators = new String[predicate.length/2];
+	   int opCtr = 0;
+	   
+	   for(String value : predicate) {
+		   if(operator==1) {
+			   operators[opCtr++] = value;
+			   operator = 0;
+			   continue;
+		   }
+		   out.println("   <td align=\"center\"><b>" + value + "</b></td>");
+		   operator = 1;
+	   }
+	   
+	   out.println("   <td align=\"center\"><b>" + values[0] + "</b></td>");
+	   out.println("  </tr>");
+	   
+	   
+	   int rows = (int) Math.pow(2, n);
+	   int result = 1;
+	   int val = 1;
+			   
+	   for(int i = 0; i < rows; i++) {
+		   out.println("  <tr>"); 
+		   opCtr=0;
+		   for(int j = n-1; j >= 0; j--) {
+			   val = (i/(int) Math.pow(2,  j))%2;
+			   out.println("   <td align=\"center\"><b>" + val + "</b></td>");
+			  
+			   
+			   if(j== (n-1)) {result = val;}
+			   
+			   
+			   else {
+				   if(isAnd(operators[opCtr])) {
+					   result = (val & result);
+				   }
+				   else if(isOr(operators[opCtr])){
+					   result = (val | result);
+				   }
+				   else {result =(val ^ result);}
+				   
+				   opCtr++;
+			   }
+			   
+			   
+		   }	   
+		   out.println("   <td align=\"center\"><b>" + result + "</b></td>");
+		   result = 1;
+		   out.println("</tr>");   
+	   }
+	   
+	   
+	   
+	   out.println("</table>");	   
+	   PrintTail(out);
+	   out.println("");
+	   // Close the writer; the response is done.
+	   out.close();      
+	} //end of doPost()
 
 /** *****************************************************
  *  Overrides HttpServlet's doGet().
@@ -203,7 +276,7 @@ private void PrintBody (PrintWriter out)
    out.println("<h1> Logic Predicate Form </h1></div>");
    
    out.println("<div class=form>");
-   out.println("<form method=\"post\" action = \"logicHandler\" name=\"PredicateForm\" ");
+   out.println("<form method=\"post\" action = \"Assignment7\" name=\"PredicateForm\" ");
    out.println("onSubmit=\" return(CheckPredicate())\">");
    
    out.println("<table><tr><td><input autocomplete=\"off\" list=\"predicates\" name=\"PredicateField\">"
