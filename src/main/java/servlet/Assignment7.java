@@ -20,6 +20,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
+import java.util.List;
+import java.util.ArrayList;
 
 //David: (1) adds servlet mapping annotation
 import javax.servlet.annotation.WebServlet;

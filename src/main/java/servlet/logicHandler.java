@@ -14,6 +14,9 @@ import java.lang.*;
 
 import com.google.gson.Gson;
 
+import java.util.List;
+import java.util.ArrayList;
+
 
 import javax.servlet.annotation.WebServlet;
 @WebServlet( name = "logicHandler", urlPatterns = {"/logicHandler"} )
