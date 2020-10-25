@@ -57,10 +57,18 @@ public class Assignment7 extends HttpServlet
 	        this.filePath = filePath;
 	    }
 	    public Entries save(String predicate){
-	      Entries entries = getAll();
+	      int contains = 0;
+	    	Entries entries = getAll();
 	      Entry newEntry = new Entry();
 	      newEntry.predicate = predicate;
-	      entries.entries.add(newEntry);
+	      for(entry : entries.entries) {
+	    	  if(entry.predicate.equals(predicate)) {
+	    		  contains = 1;
+	    	  }
+	      }
+	      
+	      if(!contains)entries.entries.add(newEntry);
+	      
 	      try{
 	        FileWriter fileWriter = new FileWriter(filePath);
 	        new Gson().toJson(entries, fileWriter);
@@ -131,11 +139,11 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
 	   response.setContentType ("text/html");
 	   //Get the response's PrintWriter to return text to the client.
 	   PrintWriter out = response.getWriter ();
-
 	   
-	   String[] values = request.getParameterValues("PredicateField");
+	   String values = request.getParameter("PredicateField");
 	   String[]  predicate = values[0].split(" ");
 
+	   
 	   EntryManager entryManager = new EntryManager();
 	   entryManager.setFilePath(RESOURCE_FILE);
 	   Entries newEntries=entryManager.save(values[0]);
