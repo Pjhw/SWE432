@@ -140,10 +140,6 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
 	   entryManager.setFilePath(RESOURCE_FILE);
 	   Entries newEntries=entryManager.save(values[0]);
 	   
-	   PrintWriter entriesPrintWriter = new PrintWriter(new FileWriter(RESOURCE_FILE, true), true);
-	   entriesPrintWriter.println(values[0]);
-	   entriesPrintWriter.close();
-	   
 	   PrintHead(out);
 	   PrintHeader(out);
 	   out.println("<div class=form_title>");
