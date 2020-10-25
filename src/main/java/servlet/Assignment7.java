@@ -208,7 +208,7 @@ private void PrintBody (PrintWriter out)
    		+ "<datalist id=\"predicates\">");
    
    
-   out.println(entryManager.getAllAsHTMLTable(newEntries));
+   out.println(entryManager.getAllAsHTMLTable(entryManager.getAll()));
 	
 
    out.println("</datalist></td></tr> ");

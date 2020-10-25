@@ -140,7 +140,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
 
    EntryManager entryManager = new EntryManager();
    entryManager.setFilePath(RESOURCE_FILE);
-   Entries newEntries=entryManager.save(predicate);
+   Entries newEntries=entryManager.save(values[0]);
    
    PrintWriter entriesPrintWriter = new PrintWriter(new FileWriter(RESOURCE_FILE, true), true);
    entriesPrintWriter.println(values[0]);
