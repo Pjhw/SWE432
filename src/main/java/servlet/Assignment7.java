@@ -28,17 +28,92 @@ import javax.servlet.annotation.WebServlet;
 public class Assignment7 extends HttpServlet
 {
 
+	  static enum Data {PREDICATE};
+	  static String RESOURCE_FILE = "predicates.json";
+
+	  static String Domain  = "";
+	  static String Path    = "/";
+	  static String Servlet = "Assignment7";
+
+	  // Button labels
+	  static String OperationAdd = "Add";
+	  
+
+	  public class Entry {
+	    String predicate;
+	  }
+
+	  public class Entries{
+	    List<Entry> entries;
+	  }
+
+	  public class EntryManager{
+	    private String filePath = null;
+
+	    public void setFilePath(String filePath) {
+	        this.filePath = filePath;
+	    }
+	    public Entries save(String predicate){
+	      Entries entries = getAll();
+	      Entry newEntry = new Entry();
+	      newEntry.predicate = predicate;
+	      entries.entries.add(newEntry);
+	      try{
+	        FileWriter fileWriter = new FileWriter(filePath);
+	        new Gson().toJson(entries, fileWriter);
+	        fileWriter.flush();
+	        fileWriter.close();
+	      }catch(IOException ioException){
+	        return null;
+	      }
+
+	      return entries;
+	    }
+
+	    private Entries getAll(){
+	      Entries entries =  entries = new Entries();
+	      entries.entries = new ArrayList();
+
+	      try{
+	        File file = new File(filePath);
+	        if(!file.exists()){
+	          return entries;
+	        }
+
+	        BufferedReader bufferedReader =
+	          new BufferedReader(new FileReader(file));
+	        Entries readEntries =
+	          new Gson().fromJson(bufferedReader, Entries.class);
+
+	        if(readEntries != null && readEntries.entries != null){
+	          entries = readEntries;
+	        }
+	        bufferedReader.close();
+
+	      }catch(IOException ioException){
+	      }
+
+	      return entries;
+	    }
+
+	    public String getAllAsHTMLTable(Entries entries){
+	      StringBuilder htmlOut = new StringBuilder("<table>");
+	      htmlOut.append("<tr><th>Name</th><th>Age</th></tr>");
+	      if(entries == null
+	          || entries.entries == null || entries.entries.size() == 0){
+	        htmlOut.append("<tr><td>No entries yet.</td></tr>");
+	      }else{
+	        for(Entry entry: entries.entries){
+	           htmlOut.append(
+	           "<option>"+entry.predicate+"</option>");
+	        }
+	      }
+	      htmlOut.append("</table>");
+	      return htmlOut.toString();
+	    }
+
+	  }
 	
-
-	static String Domain  = "";
-	static String Path    = "";
-	static String Servlet = "Assignment7";
-
-
-	static enum Data {PREDICATE};
-	static String RESOURCE_FILE = "predicates.txt";
-
-
 /** *****************************************************
  *  Overrides HttpServlet's doPost().
  *  Converts the values in the form, performs the operation
@@ -102,7 +177,8 @@ private void PrintHead (PrintWriter out)
 ********************************************************* */
 private void PrintBody (PrintWriter out)
 {
-    
+	EntryManager entryManager = new EntryManager();
+    entryManager.setFilePath(RESOURCE_FILE);
     
    out.println("<body>");
    out.println("<div class=content>");
@@ -130,21 +206,8 @@ private void PrintBody (PrintWriter out)
    out.println("<table><tr><td><input autocomplete=\"off\" list=\"predicates\" name=\"PredicateField\">"
    		+ "<datalist id=\"predicates\">");
    
-   try {
-       File file = new File(this.getServletContext().getRealPath("predicates.txt"));
-       BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-       String line;
-       while ((line = bufferedReader.readLine()) != null) {
-    	   out.println("<option value=\"" + line + "\">");
-         }
-       
-       bufferedReader.close();
-       }
-
-       
-	catch (FileNotFoundException ex) {ex.printStackTrace();} 
-	
-	catch (IOException ex) {ex.printStackTrace();}
+   
+   out.println(entryManager.getAllAsHTMLTable(newEntries));
 	
 
    out.println("</datalist></td></tr> ");
