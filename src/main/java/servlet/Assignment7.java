@@ -466,4 +466,20 @@ private void PrintJS(PrintWriter out) {
 	
 }
 
+boolean isAnd(String val) {
+	if(val.equals("&&") || val.equals("&") || val.equals("and")) {
+		return true;
+	}
+	
+	return false;
+}
+
+boolean isOr(String val) {
+	if(val.equals("||") || val.equals("|") || val.equals("or")) {
+		return true;
+	}
+	
+	return false;
+}
+
 } 
