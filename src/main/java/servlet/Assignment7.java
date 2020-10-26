@@ -1,5 +1,5 @@
 /** *****************************************************************
-    assignment5.java
+    assignment7.java
 
         @author Peter Hadeed
 ********************************************************************* */
@@ -23,7 +23,9 @@ import com.google.gson.Gson;
 import java.util.List;
 import java.util.ArrayList;
 
-//David: (1) adds servlet mapping annotation
+
+
+
 import javax.servlet.annotation.WebServlet;
 @WebServlet( name = "Assignment7", urlPatterns = {"/Assignment7"} )
 
@@ -37,9 +39,6 @@ public class Assignment7 extends HttpServlet
 	  static String Domain  = "";
 	  static String Path    = "/";
 	  static String Servlet = "Assignment7";
-
-	  // Button labels
-	  static String OperationAdd = "Add";
 	  
 
 	  public class Entry {
@@ -135,9 +134,7 @@ public class Assignment7 extends HttpServlet
 public void doPost (HttpServletRequest request, HttpServletResponse response)
    throws ServletException, IOException
 {
-	// first, set the "content type" header of the response
 	   response.setContentType ("text/html");
-	   //Get the response's PrintWriter to return text to the client.
 	   PrintWriter out = response.getWriter ();
 	   
 	   String values = request.getParameter("PredicateField");
@@ -150,6 +147,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
 	   
 	   PrintHead(out);
 	   PrintHeader(out);
+	   
 	   out.println("<div class=form_title>");
 	   out.println("<h1> Logic Predicate Form </h1></div>");
 	   
@@ -157,6 +155,8 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
 	   out.println("");
 	   out.println("  <tr bgcolor=\"#FFFFFF\">");
 	   
+	   
+	   //Boolean table print out logic
 	   int operator = 0;
 	   int n = predicate.length/2  + 1;
 	   String[] operators = new String[predicate.length/2];
@@ -186,7 +186,6 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
 		   for(int j = n-1; j >= 0; j--) {
 			   val = (i/(int) Math.pow(2,  j))%2;
 			   out.println("   <td align=\"center\"><b>" + val + "</b></td>");
-			  
 			   
 			   if(j== (n-1)) {result = val;}
 			   
@@ -199,18 +198,14 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
 					   result = (val | result);
 				   }
 				   else {result =(val ^ result);}
-				   
 				   opCtr++;
-			   }
-			   
-			   
-		   }	   
+			   }   
+		   }
+		   
 		   out.println("   <td align=\"center\"><b>" + result + "</b></td>");
 		   result = 1;
 		   out.println("</tr>");   
-	   }
-	   
-	   
+	   }     
 	   
 	   out.println("</table>");	   
 	   PrintTail(out);
