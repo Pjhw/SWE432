@@ -238,7 +238,7 @@ private void PrintHead (PrintWriter out)
    out.println("");
 
    out.println("<head>");
-   out.println("<title>Peter Hadeed - SWE 432 - Assignment 5</title>");
+   out.println("<title>Peter Hadeed - SWE 432 - Assignment 7</title>");
    out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"http://mason.gmu.edu/~phadeed/style.css\">");
    PrintStyle(out);
    PrintJS(out);
