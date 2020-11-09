@@ -40,7 +40,6 @@ public class Assignment7 extends HttpServlet
 	  static String Path    = "/";
 	  static String Servlet = "Assignment7";
 	  
-
 	  public class Entry {
 	    String predicate;
 	  }
