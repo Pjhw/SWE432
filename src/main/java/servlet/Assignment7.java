@@ -44,6 +44,7 @@ public class Assignment7 extends HttpServlet
 	    String predicate;
 	  }
 
+	  
 	  public class Entries{
 	    List<Entry> entries;
 	  }
