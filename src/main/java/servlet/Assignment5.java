@@ -116,6 +116,7 @@ private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    out.println("<li><a href=\"http://mason.gmu.edu/~phadeed/Assignment_3.html\">Assignment 3</a></li>");
    out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/Assignment5\" class = current>Assignment 5</a></li>");
    out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/Assignment7\">Assignment 7</a></li>");
+   out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/Assignment8\">Assignment 8</a></li>");
    out.println("</ul>");
    
    
