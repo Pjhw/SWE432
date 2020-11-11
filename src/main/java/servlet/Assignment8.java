@@ -30,7 +30,7 @@ import javax.servlet.annotation.WebServlet;
 @WebServlet( name = "Assignment8", urlPatterns = {"/Assignment8"} )
 
 
-public class Assignment7 extends HttpServlet
+public class Assignment8 extends HttpServlet
 {
 
 	  static enum Data {PREDICATE};
