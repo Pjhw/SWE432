@@ -174,7 +174,7 @@ private void PrintHeader (PrintWriter out)
    out.println("<body>");
    out.println("<div class=content>");
    out.println("<div class=header>");
-   out.println("<h1>Peter Hadeed - SWE 432 - Assignment 7</h1>");
+   out.println("<h1>Peter Hadeed - SWE 432 - Assignment 8</h1>");
    out.println("</div>");
    
    out.println("<ul>");
