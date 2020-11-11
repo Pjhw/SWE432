@@ -134,7 +134,9 @@ public class Assignment8 extends HttpServlet
 public void doPost (HttpServletRequest request, HttpServletResponse response)
    throws ServletException, IOException
 {
-	   
+	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/logicHandler2");
+			dispatcher.forward(request, response);
+
 	} //end of doPost()
 
 /** *****************************************************
@@ -218,7 +220,7 @@ private void PrintBody (PrintWriter out)
    out.println("<h1> Logic Predicate Form </h1></div>");
    
    out.println("<div class=form>");
-   out.println("<form method=\"post\" action = \"logicHandler2\" name=\"PredicateForm\" ");
+   out.println("<form method=\"post\" action = \"Assignment8\" name=\"PredicateForm\" ");
    out.println("onSubmit=\" return(CheckPredicate())\">");
    
    out.println("<table><tr><td><input autocomplete=\"off\" list=\"predicates\" name=\"PredicateField\">"
