@@ -10,6 +10,9 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.IOException;
 import java.io.FileNotFoundException;
+import java.io.*;  
+import javax.servlet.*;  
+import javax.servlet.http.*;  
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -135,7 +138,7 @@ public void doPost (HttpServletRequest request, HttpServletResponse response)
    throws ServletException, IOException
 {
 	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/logicHandler2");
-			dispatcher.forward(request, response);
+	dispatcher.forward(request, response);
 
 	} //end of doPost()
 
