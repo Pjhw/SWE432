@@ -33,7 +33,7 @@ import javax.servlet.annotation.WebServlet;
 @WebServlet( name = "FinalPractice", urlPatterns = {"/FinalPractice"} )
 
 
-public class Assignment8 extends HttpServlet
+public class FinalPractice extends HttpServlet
 {
 
 	  static enum Data {PREDICATE};
