@@ -150,7 +150,7 @@ private void PrintBody (PrintWriter out)
    out.println("<tr><td> String 3</td><td><input type = \"text\" name=\"String3\"></td></tr> ");
    out.println("<tr><td> Separator</td><td><input type = \"text\" name=\"Separator\"></td></tr> ");
    out.println("<tr><td> Result</td><td><input type = \"text\" name=\"PredicateField\"></td></tr> ");
-   out.println("<tr><td><input type=\"radio\" id=\Forward\" name=\"StringType\" value=\"Forward\">\n" + 
+   out.println("<tr><td><input type=\"radio\" id=\"Forward\" name=\"StringType\" value=\"Forward\">\n" + 
    		"<label for=\"Forward\">Forward</label> </td><td> <input type=\"radio\" id=\"Reverse\" name=\"StringType\" value=\"Reverse\">\n" + 
    		"<label for=\"Reverse\">Reverse</label></td>");
    out.println("<tr><td colspan=2 align=middle><input type=\"submit\" value=\"Forward\">");
