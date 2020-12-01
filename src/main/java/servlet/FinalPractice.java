@@ -145,7 +145,11 @@ private void PrintBody (PrintWriter out)
    out.println("<form method=\"post\" action = \"Final Practice\" name=\"PredicateForm\" ");
    out.println("onSubmit=\" return(CheckPredicate())\">");
    
-   
+   out.println("<table><tr><td><input type = \"text\" name=\"PredicateField\"></td> <td> String 1</td></tr> ");
+   out.println("<tr><td><input type = \"text\" name=\"PredicateField\"></td> <td> String 2</td></tr> ");
+   out.println("<tr><td><input type = \"text\" name=\"PredicateField\"></td> <td> String 3</td></tr> ");
+   out.println("<tr><td colspan=2 align=middle><input type=\"submit\" value=\"Submit\"></tr>");
+   out.println("</table></form></div>");
   
    
    out.println("</div>");
