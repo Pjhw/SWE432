@@ -43,87 +43,7 @@ public class FinalPractice extends HttpServlet
 	  static String Path    = "/";
 	  static String Servlet = "FinalPractice";
 	  
-	  public class Entry {
-	    String predicate;
-	  }
-
-	  
-	  public class Entries{
-	    List<Entry> entries;
-	  }
-
-	  public class EntryManager{
-	    private String filePath = null;
-
-	    public void setFilePath(String filePath) {
-	        this.filePath = filePath;
-	    }
-	    public Entries save(String predicate){
-	      int contains = 0;
-	    	Entries entries = getAll();
-	      Entry newEntry = new Entry();
-	      newEntry.predicate = predicate;
-	      for(Entry entry : entries.entries) {
-	    	  if(entry.predicate.equals(predicate)) {
-	    		  contains = 1;
-	    	  }
-	      }
-	      
-	      if(contains==0)entries.entries.add(newEntry);
-	      
-	      try{
-	        FileWriter fileWriter = new FileWriter(filePath);
-	        new Gson().toJson(entries, fileWriter);
-	        fileWriter.flush();
-	        fileWriter.close();
-	      }catch(IOException ioException){
-	        return null;
-	      }
-
-	      return entries;
-	    }
-
-	    private Entries getAll(){
-	      Entries entries =  entries = new Entries();
-	      entries.entries = new ArrayList();
-
-	      try{
-	        File file = new File(filePath);
-	        if(!file.exists()){
-	          return entries;
-	        }
-
-	        BufferedReader bufferedReader =
-	          new BufferedReader(new FileReader(file));
-	        Entries readEntries =
-	          new Gson().fromJson(bufferedReader, Entries.class);
-
-	        if(readEntries != null && readEntries.entries != null){
-	          entries = readEntries;
-	        }
-	        bufferedReader.close();
-
-	      }catch(IOException ioException){
-	      }
-
-	      return entries;
-	    }
-
-	    public String getAllAsHTMLTable(Entries entries){
-	      StringBuilder htmlOut = new StringBuilder("<table>");
-	      htmlOut.append("<tr><th>Name</th><th>Age</th></tr>");
-	      if(entries == null
-	          || entries.entries == null || entries.entries.size() == 0){
-	        htmlOut.append("<tr><td>No entries yet.</td></tr>");
-	      }else{
-	        for(Entry entry: entries.entries){
-	           htmlOut.append(
-	           "<option>"+entry.predicate+"</option>");
-	        }
-	      }
-	      htmlOut.append("</table>");
-	      return htmlOut.toString();
-	    }
+	
 
 	  }
 	
@@ -222,40 +142,14 @@ private void PrintBody (PrintWriter out)
    
    //Form print
    out.println("<div class=form_title>");
-   out.println("<h1> Logic Predicate Form </h1></div>");
+   out.println("<h1> Three String Form </h1></div>");
    
    out.println("<div class=form>");
    out.println("<form method=\"post\" action = \"Final Practice\" name=\"PredicateForm\" ");
    out.println("onSubmit=\" return(CheckPredicate())\">");
    
-   out.println("<table><tr><td><input autocomplete=\"off\" list=\"predicates\" name=\"PredicateField\">"
-   		+ "<datalist id=\"predicates\">");
    
-   
-   out.println(entryManager.getAllAsHTMLTable(entryManager.getAll()));
-	
-
-   out.println("</datalist></td></tr> ");
-   out.println("<tr><td colspan=2 align=middle><input type=\"submit\" value=\"Submit\"></td>"
-   		+ "</tr>");
-   out.println("</table></form></div>");
-   
-   //Form Description
-   out.println("<div class=form_description><p style=\"margin-left: 10%;\">");
-   out.println("<b>Description of Use</b><br><br>");
-   out.println("Enter any logical predicate into the form. Logical predicates consist"
-   		+ " of any strings following the form (X = Operand, Y = Operator):");
-   out.println("<br><br>");
-   out.println("X -- X Y X -- X Y X Y X, Etc...");
-   out.println("<br><br>");
-   out.println("<b> Allowed </b><br><br>");
-   out.println("1. Operators - && : & : and : || : | : or : xor : ^ <br><br>");
-   out.println("2. Operands - Anything counts as an operand.<br><br>");
-   out.println("3. All Operands and Operators must be separated by a SPACE<br><br>");
-   out.println("<b>Not Allowed</b><br><br>");
-   out.println("1. Empty Forms<br><br>");
-   out.println("2. Logical operators with only one operand (i.e. \"1 and \")");
-   out.println("</p></div>");
+  
    
    out.println("</div>");
    out.println("</body>");
