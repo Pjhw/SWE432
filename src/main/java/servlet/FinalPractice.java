@@ -142,16 +142,18 @@ private void PrintBody (PrintWriter out)
    out.println("<h1> Three String Form </h1></div>");
    
    out.println("<div class=form>");
-   out.println("<form method=\"post\" action = \"Final Practice\" name=\"PredicateForm\" ");
-   out.println("onSubmit=\" return(CheckPredicate())\">");
+   out.println("<form method=\"\" action = \"Final Practice\" name=\"StringForm\" ");
+   out.println("onSubmit=\" return(CheckString())\">");
    
-   out.println("<table><tr><td> String 1</td><td><input type = \"text\" name=\"PredicateField\"></td></tr> ");
-   out.println("<tr><td> String 2</td><td><input type = \"text\" name=\"PredicateField\"></td></tr> ");
-   out.println("<tr><td> String 3</td><td><input type = \"text\" name=\"PredicateField\"></td></tr> ");
-   out.println("<tr><td> Separator</td><td><input type = \"text\" name=\"PredicateField\"></td></tr> ");
+   out.println("<table><tr><td> String 1</td><td><input type = \"text\" name=\"String1\"></td></tr> ");
+   out.println("<tr><td> String 2</td><td><input type = \"text\" name=\"String2\"></td></tr> ");
+   out.println("<tr><td> String 3</td><td><input type = \"text\" name=\"String3\"></td></tr> ");
+   out.println("<tr><td> Separator</td><td><input type = \"text\" name=\"Separator\"></td></tr> ");
    out.println("<tr><td> Result</td><td><input type = \"text\" name=\"PredicateField\"></td></tr> ");
-   out.println("<tr><td colspan=2 align=middle><input type=\"submit\" value=\"Forward\">"
-   		+ "<td colspan=2 align=middle><input type=\\\"submit\\\" value=\\\"Reverse\\\"></tr>");
+   out.println("<tr><td><input type=\"radio\" id=\Forward\" name=\"StringType\" value=\"Forward\">\r\n" + 
+   		"<label for=\"Forward\">Forward</label> </td><td> <input type=\"radio\" id=\"Reverse\" name=\"StringType\" value=\"Reverse\">\r\n" + 
+   		"<label for=\"Reverse\">Reverse</label></td>");
+   out.println("<tr><td colspan=2 align=middle><input type=\"submit\" value=\"Forward\">");
    out.println("</table></form></div>");
   
    
