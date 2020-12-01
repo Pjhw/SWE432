@@ -120,9 +120,7 @@ private void PrintHeader (PrintWriter out)
 ********************************************************* */
 private void PrintBody (PrintWriter out)
 {
-	EntryManager entryManager = new EntryManager();
-    entryManager.setFilePath(RESOURCE_FILE);
-    
+	
    out.println("<body>");
    out.println("<div class=content>");
    out.println("<div class=header>");
