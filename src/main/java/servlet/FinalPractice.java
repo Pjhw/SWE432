@@ -120,7 +120,7 @@ private void PrintHeader (PrintWriter out)
 ********************************************************* */
 private void PrintBody (PrintWriter out)
 {
-	
+
    out.println("<body>");
    out.println("<div class=content>");
    out.println("<div class=header>");
