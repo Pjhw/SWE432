@@ -45,7 +45,6 @@ public class FinalPractice extends HttpServlet
 	  
 	
 
-	  }
 	
 /** *****************************************************
  *  Overrides HttpServlet's doPost().
