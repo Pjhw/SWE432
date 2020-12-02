@@ -226,7 +226,7 @@ private void PrintJS(PrintWriter out) {
 			"\r\n" + 
 			"	var forward = document.getElementById(\"Forward\").checked;\r\n" + 
 			"\r\n" + 
-			"	var finalString = \"\";\r\n" + 
+			"	var finalString = \" \";\r\n" + 
 			"\r\n" + 
 			"	if separator.equals(\"\"){\r\n" + 
 			"		separator = \" \";\r\n" + 
@@ -240,8 +240,8 @@ private void PrintJS(PrintWriter out) {
 			"\r\n" + 
 			"	else{\r\n" + 
 			"		finalString.concat(string1.split(\"\").reverse().join(\"\");\r\n" + 
-			"		finalString.concat(string1.split(\"\").reverse().join(\"\");\r\n" + 
-			"		finalString.concat(string1.split(\"\").reverse().join(\"\");\r\n" + 
+			"		finalString.concat(string2.split(\"\").reverse().join(\"\");\r\n" + 
+			"		finalString.concat(string3.split(\"\").reverse().join(\"\");\r\n" + 
 			"	}\r\n" + 
 			"\r\n" + 
 			"	alert(finalString);\r\n" + 
