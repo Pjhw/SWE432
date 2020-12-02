@@ -228,7 +228,7 @@ private void PrintJS(PrintWriter out) {
 			"\r\n" + 
 			"	var finalString = \"\";\r\n" + 
 			"\r\n" + 
-			"	if separator.equaks(\"\"){\r\n" + 
+			"	if separator.equals(\"\"){\r\n" + 
 			"		separator = \" \";\r\n" + 
 			"	}\r\n" + 
 			"\r\n" + 
