@@ -219,7 +219,6 @@ private void PrintJS(PrintWriter out) {
 	out.println("<script>");
 	
 	out.println("function CheckString(){\r\n" + 
-			"	alert(\" \");\r\n" +
 			"	var string1 = document.StringForm.String1.value;\r\n" + 
 			"	var string2 = document.StringForm.String2.value;\r\n" + 
 			"	var string3 = document.StringForm.String3.value;\r\n" + 
@@ -229,24 +228,31 @@ private void PrintJS(PrintWriter out) {
 			"\r\n" + 
 			"	var finalString = \" \";\r\n" + 
 			"\r\n" + 
-			"	if separator.equals(\"\"){\r\n" + 
+			"\r\n" + 
+			"\r\n" + 
+			"	if (separator == \"\"){\r\n" + 
 			"		separator = \" \";\r\n" + 
 			"	}\r\n" + 
 			"\r\n" + 
+			"\r\n" + 
 			"	if(forward){\r\n" + 
-			"		finalString.concat(string1);\r\n" + 
-			"		finalString.concat(string2);\r\n" + 
-			"		finalString.concat(string3);\r\n" + 
+			"		finalString = finalString.concat(string1);\r\n" + 
+			"		finalString = finalString.concat(string2);\r\n" + 
+			"		finalString = finalString.concat(string3);\r\n" + 
 			"	}\r\n" + 
+			"\r\n" + 
 			"\r\n" + 
 			"	else{\r\n" + 
-			"		finalString.concat(string1.split(\"\").reverse().join(\"\");\r\n" + 
-			"		finalString.concat(string2.split(\"\").reverse().join(\"\");\r\n" + 
-			"		finalString.concat(string3.split(\"\").reverse().join(\"\");\r\n" + 
+			"		finalString = finalString.concat(string1.split(\"\").reverse().join(\"\"));\r\n" + 
+			"		finalString = finalString.concat(string2.split(\"\").reverse().join(\"\"));\r\n" + 
+			"		finalString = finalString.concat(string3.split(\"\").reverse().join(\"\"));\r\n" + 
 			"	}\r\n" + 
 			"\r\n" + 
+			"\r\n" + 
+			"\r\n" + 
 			"	alert(finalString);\r\n" + 
-			"	\r\n" + "return(true);\r\n"+
+			"	\r\n" + 
+			"	return(true);\r\n" +
 			"}");
 	
 	out.println("</script>");
