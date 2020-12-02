@@ -237,14 +237,18 @@ private void PrintJS(PrintWriter out) {
 			"\r\n" + 
 			"	if(forward){\r\n" + 
 			"		finalString = finalString.concat(string1);\r\n" + 
+			"		finalString = finalString.concat(separator);\r\n" + 
 			"		finalString = finalString.concat(string2);\r\n" + 
+			"		finalString = finalString.concat(separator);\r\n" + 
 			"		finalString = finalString.concat(string3);\r\n" + 
 			"	}\r\n" + 
 			"\r\n" + 
 			"\r\n" + 
 			"	else{\r\n" + 
 			"		finalString = finalString.concat(string1.split(\"\").reverse().join(\"\"));\r\n" + 
+			"		finalString = finalString.concat(separator);\r\n" + 
 			"		finalString = finalString.concat(string2.split(\"\").reverse().join(\"\"));\r\n" + 
+			"		finalString = finalString.concat(separator);\r\n" + 
 			"		finalString = finalString.concat(string3.split(\"\").reverse().join(\"\"));\r\n" + 
 			"	}\r\n" + 
 			"\r\n" + 
