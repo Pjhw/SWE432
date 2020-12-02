@@ -219,7 +219,7 @@ private void PrintJS(PrintWriter out) {
 	out.println("<script>");
 	
 	out.println("function CheckString(){\r\n" + 
-			"	alert(" ");\r\n" +
+			"	alert(\" \");\r\n" +
 			"	var string1 = document.StringForm.String1.value;\r\n" + 
 			"	var string2 = document.StringForm.String2.value;\r\n" + 
 			"	var string3 = document.StringForm.String3.value;\r\n" + 
