@@ -152,7 +152,7 @@ private void PrintBody (PrintWriter out)
    out.println("<tr><td><input type=\"radio\" id=\"Forward\" name=\"StringType\" value=\"Forward\" checked>\n" + 
    		"<label for=\"Forward\">Forward</label> </td><td> <input type=\"radio\" id=\"Reverse\" name=\"StringType\" value=\"Reverse\">\n" + 
    		"<label for=\"Reverse\">Reverse</label></td>");
-   out.println("<tr><td colspan=2 align=middle><input type=\"submit\" value=\"Forward\">");
+   out.println("<tr><td colspan=2 align=middle><input type=\"submit\" value=\"Submit\">");
    out.println("</table></form></div>");
   
    
