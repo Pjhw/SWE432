@@ -149,9 +149,8 @@ private void PrintBody (PrintWriter out)
    out.println("<tr><td> String 2</td><td><input type = \"text\" name=\"String2\"></td></tr> ");
    out.println("<tr><td> String 3</td><td><input type = \"text\" name=\"String3\"></td></tr> ");
    out.println("<tr><td> Separator</td><td><input type = \"text\" name=\"Separator\"></td></tr> ");
-   out.println("<tr><td> Result</td><td><input type = \"text\" name=\"PredicateField\"></td></tr> ");
-   out.println("<tr><td><input type=\"radio\" id=\"Forward\" name=\"StringType\" value=\"Forward\">\n" + 
-   		"<label for=\"Forward\">Forward</label> </td><td> <input type=\"radio\" id=\"Reverse\" name=\"StringType\" value=\"Reverse\" checked>\n" + 
+   out.println("<tr><td><input type=\"radio\" id=\"Forward\" name=\"StringType\" value=\"Forward\" checked>\n" + 
+   		"<label for=\"Forward\">Forward</label> </td><td> <input type=\"radio\" id=\"Reverse\" name=\"StringType\" value=\"Reverse\">\n" + 
    		"<label for=\"Reverse\">Reverse</label></td>");
    out.println("<tr><td colspan=2 align=middle><input type=\"submit\" value=\"Forward\">");
    out.println("</table></form></div>");
@@ -219,98 +218,35 @@ private void PrintStyle(PrintWriter out)
 private void PrintJS(PrintWriter out) {
 	out.println("<script>");
 	
-	out.println("function CheckPredicate(){\r\n" + 
-			"         	var predicate = document.PredicateForm.PredicateField.value.split(\" \");\r\n" + 
-			"         	var valid = true;\r\n" + 
-			"         	var operand = true;\r\n" + 
-			"         	var errormsg = \"The following errors occurred\\n\\n\";\r\n" + 
-			"         	var one_operand = false;\r\n" + 
-			"           var badOp = false;\r\n" +
-			"         	\r\n" + 
-			"         	\r\n" + 
-			"         	//Loops through each word of the predicate string and evaluates it.\r\n" + 
-			"         	for(let i = 0; i < predicate.length; i++){\r\n" + 
-			"				//For checking the operand element of the string\r\n" + 
-			"         		if (operand){\r\n" + 
-			"         				\r\n" + 
-			"         			if (CheckOperand(predicate[i])){\r\n" + 
-			"         				operand = false;\r\n" + 
-			"         				valid = true;\r\n" + 
-			"         				one_operand = false;\r\n" + 
-			"         				continue;\r\n" + 
-			"         			}\r\n" + 
-			"         			else{\r\n" + 
-			"         				errormsg = errormsg.concat(\"Empty String for operand.\\n\");\r\n" + 
-			"         				valid = false;\r\n" + 
-			"         				break;\r\n" + 
-			"         			}\r\n" + 
-			"         			\r\n" + 
-			"         		}\r\n" + 
-			"				\r\n" + 
-			"				//For checking the operator element of the string\r\n" + 
-			"         		else{\r\n" + 
-			"         			one_operand = true;\r\n" + 
-			"         			\r\n" + 
-			"         			if(CheckOperator(predicate[i])){\r\n" + 
-			"         				operand = true;\r\n" + 
-			"         				valid = false;\r\n" + 
-			"         				continue;\r\n" + 
-			"         			}\r\n" + 
-			"         			else{\r\n" + 
-			"                       if(!badOp){          "+
-			"         				errormsg = errormsg.concat(\"Bad operator entered.\\n\");\r\n" + 
-			"         				valid = false;\r\n" + 
-			"                       badOp = true;\r\n" +
-			"         				continue;}\r\n" + 
-			"         				}\r\n" + 
-			"         		}\r\n" + 
-			"         	}\r\n" + 
-			"         	\r\n" + 
-			"			\r\n" + 
-			"			\r\n" + 
-			"         	if(valid){\r\n" + 
-			"         		return (true);\r\n" + 
-			"         	}	\r\n" + 
-			"			\r\n" + 
-			"         	else{\r\n" + 
-			"         		if(one_operand && !badOp){\r\n" + 
-			"         			errormsg = errormsg.concat(\"Operator is missing an operand\\n\");\r\n" + 
-			"         		}\r\n" + 
-			"         		PrintErrorMsg(errormsg);\r\n" + 
-			"         		return(false);\r\n" + 
-			"         	}\r\n" + 
-			"         }");
-	
-	out.println("function CheckOperand(operand){\r\n" + 
-			"         	if(operand.length == 0){\r\n" + 
-			"         		return(false);\r\n" + 
-			"         	}\r\n" + 
-			"         	return (true);\r\n" + 
-			"         }");
-	
-	out.println("function CheckOperator(operator){\r\n" + 
-			"         	if(operator.localeCompare(\"&\") !=0 && operator.localeCompare(\"&&\") !=0 && \r\n" + 
-			"         		operator.localeCompare(\"|\") !=0 && operator.localeCompare(\"||\") !=0 &&\r\n" + 
-			"         		operator.localeCompare(\"or\") !=0 &&\r\n" + 
-			"         		operator.localeCompare(\"and\") !=0 &&\r\n" + 
-			"         		operator.localeCompare(\"OR\") !=0 &&\r\n" + 
-			"         		operator.localeCompare(\"AND\") !=0 &&\r\n" + 
-			"         		operator.localeCompare(\"XOR\") !=0 &&\r\n" + 
-			"         		operator.localeCompare(\"xor\") !=0 && \r\n" + 
-			"         		operator.localeCompare(\"^\") !=0 \r\n" + 
+	out.println("function CheckString(){\r\n" + 
+			"	var string1 = document.StringForm.String1.value;\r\n" + 
+			"	var string2 = document.StringForm.String2.value;\r\n" + 
+			"	var string3 = document.StringForm.String3.value;\r\n" + 
+			"	var separator = document.StringForm.Separator.value;\r\n" + 
 			"\r\n" + 
-			"         		){\r\n" + 
-			"         \r\n" + 
-			"         		return (false);\r\n" + 
-			"         	}\r\n" + 
-			"         \r\n" + 
-			"         	else{ return (true);}\r\n" + 
-			"         }");
-	
-	out.println("//Prints the accumulated error message\r\n" + 
-			"         function PrintErrorMsg(errormsg){\r\n" + 
-			"         	alert(errormsg);\r\n" + 
-			"         }");
+			"	var forward = document.getElementById(\"Forward\").checked;\r\n" + 
+			"\r\n" + 
+			"	var finalString = \"\";\r\n" + 
+			"\r\n" + 
+			"	if separator.equaks(\"\"){\r\n" + 
+			"		separator = \" \";\r\n" + 
+			"	}\r\n" + 
+			"\r\n" + 
+			"	if(forward){\r\n" + 
+			"		finalString.concat(string1);\r\n" + 
+			"		finalString.concat(string2);\r\n" + 
+			"		finalString.concat(string3);\r\n" + 
+			"	}\r\n" + 
+			"\r\n" + 
+			"	else{\r\n" + 
+			"		finalString.concat(string1.split(\"\").reverse().join(\"\");\r\n" + 
+			"		finalString.concat(string1.split(\"\").reverse().join(\"\");\r\n" + 
+			"		finalString.concat(string1.split(\"\").reverse().join(\"\");\r\n" + 
+			"	}\r\n" + 
+			"\r\n" + 
+			"	alert(finalString);\r\n" + 
+			"	\r\n" + 
+			"}");
 	
 	out.println("</script>");
 	
