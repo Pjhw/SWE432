@@ -142,7 +142,7 @@ private void PrintBody (PrintWriter out)
    out.println("<h1> Three String Form </h1></div>");
    
    out.println("<div class=form>");
-   out.println("<form method=\"\" action = \"\" name=\"StringForm\" ");
+   out.println("<form  name=\"StringForm\" ");
    out.println("onSubmit=\" return(CheckString())\">");
    
    out.println("<table><tr><td> String 1</td><td><input type = \"text\" name=\"String1\"></td></tr> ");
