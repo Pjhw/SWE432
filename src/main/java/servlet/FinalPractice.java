@@ -245,7 +245,7 @@ private void PrintJS(PrintWriter out) {
 			"	}\r\n" + 
 			"\r\n" + 
 			"	alert(finalString);\r\n" + 
-			"	\r\n" + 
+			"	\r\n" + "return(true);\r\n"+
 			"}");
 	
 	out.println("</script>");
