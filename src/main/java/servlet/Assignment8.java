@@ -189,7 +189,7 @@ private void PrintHeader (PrintWriter out)
    out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/Assignment7\">Assignment 7</a></li>");
    out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/Assignment8\" class = current>Assignment 8</a></li>");
    out.println("<li><a href=\"https://codesandbox.io/s/youthful-fermi-v4mfz?file=/src/index.js\">Assignment 9</a></li>");
-   out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/FinalPractice\" class = current>Final Practice</a></li>");
+   out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/FinalPractice\">Final Practice</a></li>");
    out.println("</ul>");
    
    
@@ -218,7 +218,7 @@ private void PrintBody (PrintWriter out)
    out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/Assignment7\">Assignment 7</a></li>");
    out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/Assignment8\" class = current>Assignment 8</a></li>");
    out.println("<li><a href=\"https://codesandbox.io/s/youthful-fermi-v4mfz?file=/src/index.js\">Assignment 9</a></li>");
-   out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/FinalPractice\" class = current>Final Practice</a></li>");
+   out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/FinalPractice\">Final Practice</a></li>");
    out.println("</ul>");
    
    
