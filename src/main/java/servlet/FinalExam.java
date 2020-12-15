@@ -230,7 +230,7 @@ private void PrintJS(PrintWriter out) {
 			"	\r\n" + 
 			"	var strings = document.StringForm.Strings.value;\r\n" + 
 			"\r\n" + 
-			"	var ascending = document.getElementById(\"Forward\").checked;\r\n" + 
+			"	var ascending = document.getElementById(\"Ascending\").checked;\r\n" + 
 			"\r\n" + 
 			"	var finalString = \" \";\r\n" + 
 			"\r\n" + 
@@ -241,7 +241,7 @@ private void PrintJS(PrintWriter out) {
 			"\r\n" + 
 			"\r\n" + 
 			"	else{\r\n" + 
-			"		strings = strings.split(\" \").reversed().join(\" - \");\r\n" + 
+			"		strings = strings.split(\" \").reverse().join(\" - \");\r\n" + 
 			"	}\r\n" + 
 			"\r\n" + 
 			"\r\n" + 
