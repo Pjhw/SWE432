@@ -155,7 +155,10 @@ private void PrintBody (PrintWriter out)
    		"<label for=\"Ascending\">Ascending</label> </td>\r\n" + 
    		"\r\n" + 
    		"<td> <input type=\"radio\" id=\"Descending\" name=\"StringType\" value=\"Descending\">\r\n" + 
-   		"<label for=\"Descending\">Descending</label></td>");
+   		"<label for=\"Descending\">Descending</label></td>\r\n" + 
+   		"\r\n" + 
+   		"<td> <input type=\"radio\" id=\"StringLength\" name=\"StringType\" value=\"StringLength\">\r\n" + 
+   		"<label for=\"StringLength\">String Length</label></td></tr>");
    out.println("<tr><td colspan=2 align=middle><input type=\"submit\" value=\"Submit\">");
    out.println("</table></form></div>");
    
@@ -230,23 +233,40 @@ private void PrintJS(PrintWriter out) {
 	out.println("<script>");
 	
 	out.println("function CheckString(){\r\n" + 
-			"	\r\n alert(\"Hello\")\r\n" + 
+			"	\r\n" + 
 			"	var strings = document.StringForm.Strings.value;\r\n" + 
 			"\r\n" + 
 			"	var ascending = document.getElementById(\"Ascending\").checked;\r\n" + 
+			"	\r\n" + 
+			"	var descending = document.getElementById(\"Descending\").checked;\r\n" + 
 			"\r\n" + 
 			"	var finalString = \" \";\r\n" + 
 			"\r\n" + 
+			"	strings = [...new Set(strings.split(\" \"))];\r\n" + 
+			"	\r\n" + 
+			"	strings = strings.join(\" \");\r\n" + 
 			"\r\n" + 
 			"	if(ascending){\r\n" + 
 			"		strings = strings.split(\" \").sort().join(\" - \");\r\n" + 
 			"	}\r\n" + 
 			"\r\n" + 
 			"\r\n" + 
-			"	else{\r\n" + 
+			"	if(descending){\r\n" + 
 			"		strings = strings.split(\" \").reverse().join(\" - \");\r\n" + 
 			"	}\r\n" + 
+			"	\r\n" + 
+			"	else{\r\n" + 
+			"		strings = strings.split(\" \").sort(function(a, b){\r\n" + 
+			"		// ASC  -> a.length - b.length\r\n" + 
+			"		// DESC -> b.length - a.length\r\n" + 
+			"		return b.length - a.length;\r\n" + 
+			"		});\r\n" + 
+			"		\r\n" + 
+			"		strings = strings.join(\" - \");\r\n" + 
+			"	}\r\n" + 
 			"\r\n" + 
+			"\r\n" + 
+			"	\r\n" + 
 			"\r\n" + 
 			"\r\n" + 
 			"	alert(strings);\r\n" + 
