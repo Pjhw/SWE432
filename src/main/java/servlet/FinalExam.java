@@ -1,5 +1,5 @@
 /** *****************************************************************
-    FinalPractice.java
+    FinalExam.java
 
         @author Peter Hadeed
 ********************************************************************* */
@@ -30,10 +30,10 @@ import java.util.ArrayList;
 
 
 import javax.servlet.annotation.WebServlet;
-@WebServlet( name = "FinalPractice", urlPatterns = {"/FinalPractice"} )
+@WebServlet( name = "FinalExam", urlPatterns = {"/FinalExam"} )
 
 
-public class FinalPractice extends HttpServlet
+public class FinalExam extends HttpServlet
 {
 
 	  static enum Data {PREDICATE};
@@ -108,8 +108,8 @@ private void PrintHeader (PrintWriter out)
    out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/Assignment7\">Assignment 7</a></li>");
    out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/Assignment8\">Assignment 8</a></li>");
    out.println("<li><a href=\"https://codesandbox.io/s/youthful-fermi-v4mfz?file=/src/index.js\">Assignment 9</a></li>");
-   out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/FinalPractice\" class = current>Final Practice</a></li>");
-   out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/FinalExam\">Final Exam</a></li>");
+   out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/FinalPractice\">Final Practice</a></li>");
+   out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/FinalExam\" class = current>Final Exam</a></li>");
    out.println("</ul>");
    
    
@@ -136,8 +136,8 @@ private void PrintBody (PrintWriter out)
    out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/Assignment7\">Assignment 7</a></li>");
    out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/Assignment8\">Assignment 8</a></li>");
    out.println("<li><a href=\"https://codesandbox.io/s/youthful-fermi-v4mfz?file=/src/index.js\">Assignment 9</a></li>");
-   out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/FinalPractice\" class = current>Final Practice</a></li>");
-   out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/FinalExam\">Final Exam</a></li>");
+   out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/FinalPractice\">Final Practice</a></li>");
+   out.println("<li><a href=\"https://swe432-hadeed.herokuapp.com/FinalExam\" class = current>Final Exam</a></li>");
    out.println("</ul>");
    
    
