@@ -158,7 +158,7 @@ private void PrintBody (PrintWriter out)
    		"<label for=\"Descending\">Descending</label></td>\r\n" + 
    		"\r\n" + 
    		"<td> <input type=\"radio\" id=\"StringLength\" name=\"StringType\" value=\"StringLength\">\r\n" + 
-   		"<label for=\"StringLength\">String Length</label></td></tr>");
+   		"<label for=\"StringLength\">String Length</label></td></tr><br>");
    out.println("<tr><td colspan=2 align=middle><input type=\"submit\" value=\"Submit\">");
    out.println("</table></form></div>");
    
