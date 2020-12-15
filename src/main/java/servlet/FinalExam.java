@@ -251,7 +251,7 @@ private void PrintJS(PrintWriter out) {
 			"	}\r\n" + 
 			"\r\n" + 
 			"\r\n" + 
-			"	if(descending){\r\n" + 
+			"	else if(descending){\r\n" + 
 			"		strings = strings.split(\" \").reverse().join(\" - \");\r\n" + 
 			"	}\r\n" + 
 			"	\r\n" + 
