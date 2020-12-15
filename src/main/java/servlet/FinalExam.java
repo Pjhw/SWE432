@@ -149,9 +149,12 @@ private void PrintBody (PrintWriter out)
    out.println("<form  name=\"StringForm\" ");
    out.println("onSubmit=\" return(CheckString())\">");
    
-   out.println("<table><tr><td> Strings</td><td><input type = \"text\" name=\"Strings\"></td></tr> ");
-   out.println("<tr><td><input type=\"radio\" id=\"Ascending\" name=\"StringType\" value=\"Ascending\" checked>\n" + 
-   		"<label for=\"Ascending\">Ascending</label> </td><td> <input type=\"radio\" id=\"Descending\" name=\"StringType\" value=\"Descending\">\n" + 
+   out.println("<table><tr><td> Strings</td><td><input type = \"text\" name=\"Strings\"></td></tr> \r\n" + 
+   		"\r\n" + 
+   		"<tr><td><input type=\"radio\" id=\"Ascending\" name=\"StringType\" value=\"Ascending\" checked>\r\n" + 
+   		"<label for=\"Ascending\">Ascending</label> </td>\r\n" + 
+   		"\r\n" + 
+   		"<td> <input type=\"radio\" id=\"Descending\" name=\"StringType\" value=\"Descending\">\r\n" + 
    		"<label for=\"Descending\">Descending</label></td>");
    out.println("<tr><td colspan=2 align=middle><input type=\"submit\" value=\"Submit\">");
    out.println("</table></form></div>");
