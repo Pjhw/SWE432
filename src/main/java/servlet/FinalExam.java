@@ -229,7 +229,7 @@ private void PrintStyle(PrintWriter out)
 private void PrintJS(PrintWriter out) {
 	out.println("<script>");
 	
-	out.println("function checkString(){\r\n" + 
+	out.println("function CheckString(){\r\n" + 
 			"	\r\n alert(\"Hello\")\r\n" + 
 			"	var strings = document.StringForm.Strings.value;\r\n" + 
 			"\r\n" + 
