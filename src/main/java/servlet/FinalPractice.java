@@ -149,19 +149,15 @@ private void PrintBody (PrintWriter out)
    out.println("<form  name=\"StringForm\" ");
    out.println("onSubmit=\" return(CheckString())\">");
    
-   out.println("<table><tr><td> Strings</td><td><input type = \"text\" name=\"Strings\"></td></tr> ");
-   out.println("<tr><td><input type=\"radio\" id=\"Ascending\" name=\"StringType\" value=\"Ascending\" checked>\n" + 
-   		"<label for=\"Ascending\">Ascending</label> </td><td> <input type=\"radio\" id=\"Descending\" name=\"StringType\" value=\"Descending\">\n" + 
-   		"<label for=\"Descending\">Descending</label></td>");
+   out.println("<table><tr><td> String 1</td><td><input type = \"text\" name=\"String1\"></td></tr> ");
+   out.println("<tr><td> String 2</td><td><input type = \"text\" name=\"String2\"></td></tr> ");
+   out.println("<tr><td> String 3</td><td><input type = \"text\" name=\"String3\"></td></tr> ");
+   out.println("<tr><td> Separator</td><td><input type = \"text\" name=\"Separator\"></td></tr> ");
+   out.println("<tr><td><input type=\"radio\" id=\"Forward\" name=\"StringType\" value=\"Forward\" checked>\n" + 
+   		"<label for=\"Forward\">Forward</label> </td><td> <input type=\"radio\" id=\"Reverse\" name=\"StringType\" value=\"Reverse\">\n" + 
+   		"<label for=\"Reverse\">Reverse</label></td>");
    out.println("<tr><td colspan=2 align=middle><input type=\"submit\" value=\"Submit\">");
    out.println("</table></form></div>");
-   
-   
-   out.println("<div class=form_description><p style=\"margin-left: 10%;\">");
-   out.println("<b>Description of Use</b><br><br>");
-   out.println("Enter as many strings in the field, with each string separated by a SPACE");
-   out.println("<br><br>");
-   out.println("</p></div>");
   
    
    out.println("</div>");
@@ -226,30 +222,45 @@ private void PrintStyle(PrintWriter out)
 private void PrintJS(PrintWriter out) {
 	out.println("<script>");
 	
-	out.println("function checkString(){\r\n" + 
-			"	\r\n" + 
-			"	var strings = document.StringForm.Strings.value;\r\n" + 
+	out.println("function CheckString(){\r\n" + 
+			"	var string1 = document.StringForm.String1.value;\r\n" + 
+			"	var string2 = document.StringForm.String2.value;\r\n" + 
+			"	var string3 = document.StringForm.String3.value;\r\n" + 
+			"	var separator = document.StringForm.Separator.value;\r\n" + 
 			"\r\n" + 
-			"	var ascending = document.getElementById(\"Forward\").checked;\r\n" + 
+			"	var forward = document.getElementById(\"Forward\").checked;\r\n" + 
 			"\r\n" + 
 			"	var finalString = \" \";\r\n" + 
 			"\r\n" + 
 			"\r\n" + 
-			"	if(ascending){\r\n" + 
-			"		strings = strings.split(\" \").sort().join(\" - \");\r\n" + 
+			"\r\n" + 
+			"	if (separator == \"\"){\r\n" + 
+			"		separator = \" \";\r\n" + 
+			"	}\r\n" + 
+			"\r\n" + 
+			"\r\n" + 
+			"	if(forward){\r\n" + 
+			"		finalString = finalString.concat(string1);\r\n" + 
+			"		finalString = finalString.concat(separator);\r\n" + 
+			"		finalString = finalString.concat(string2);\r\n" + 
+			"		finalString = finalString.concat(separator);\r\n" + 
+			"		finalString = finalString.concat(string3);\r\n" + 
 			"	}\r\n" + 
 			"\r\n" + 
 			"\r\n" + 
 			"	else{\r\n" + 
-			"		strings = strings.split(\" \").reversed().join(\" - \");\r\n" + 
+			"		finalString = finalString.concat(string1.split(\"\").reverse().join(\"\"));\r\n" + 
+			"		finalString = finalString.concat(separator);\r\n" + 
+			"		finalString = finalString.concat(string2.split(\"\").reverse().join(\"\"));\r\n" + 
+			"		finalString = finalString.concat(separator);\r\n" + 
+			"		finalString = finalString.concat(string3.split(\"\").reverse().join(\"\"));\r\n" + 
 			"	}\r\n" + 
 			"\r\n" + 
 			"\r\n" + 
 			"\r\n" + 
-			"	alert(strings);\r\n" + 
+			"	alert(finalString);\r\n" + 
 			"	\r\n" + 
-			"	return(true);\r\n" + 
-			"	\r\n" + 
+			"	return(true);\r\n" +
 			"}");
 	
 	out.println("</script>");
