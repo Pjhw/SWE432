@@ -167,6 +167,9 @@ private void PrintBody (PrintWriter out)
    out.println("<b>Description of Use</b><br><br>");
    out.println("Enter as many strings in the field, with each string separated by a SPACE");
    out.println("<br><br>");
+   out.println("The sorted strings will be sorted alphabetically, with Capitalize words being prioritized.");
+   out.println("<br><br>");
+   out.println("If sorting by string length, it will sort the strings starting with the longest string.");
    out.println("</p></div>");
   
    
