@@ -230,7 +230,7 @@ private void PrintJS(PrintWriter out) {
 	out.println("<script>");
 	
 	out.println("function checkString(){\r\n" + 
-			"	\r\n" + 
+			"	\r\n alert(\"Hello\")\r\n" + 
 			"	var strings = document.StringForm.Strings.value;\r\n" + 
 			"\r\n" + 
 			"	var ascending = document.getElementById(\"Ascending\").checked;\r\n" + 
