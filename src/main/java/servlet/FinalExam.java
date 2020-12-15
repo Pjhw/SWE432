@@ -143,7 +143,7 @@ private void PrintBody (PrintWriter out)
    
    //Form print
    out.println("<div class=form_title>");
-   out.println("<h1> Three String Form </h1></div>");
+   out.println("<h1> Multiple String Sorter </h1></div>");
    
    out.println("<div class=form>");
    out.println("<form  name=\"StringForm\" ");
@@ -158,7 +158,7 @@ private void PrintBody (PrintWriter out)
    		"<label for=\"Descending\">Descending</label></td>\r\n" + 
    		"\r\n" + 
    		"<td> <input type=\"radio\" id=\"StringLength\" name=\"StringType\" value=\"StringLength\">\r\n" + 
-   		"<label for=\"StringLength\">String Length</label></td></tr><br>");
+   		"<label for=\"StringLength\">String Length</label></td></tr>");
    out.println("<tr><td colspan=2 align=middle><input type=\"submit\" value=\"Submit\">");
    out.println("</table></form></div>");
    
